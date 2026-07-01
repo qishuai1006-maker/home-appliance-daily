@@ -82,6 +82,66 @@
       </div>`;
   }
 
+  // ---------- 渲染：用户评论洞察（选题金矿） ----------
+  function renderInsight() {
+    const box = document.getElementById("insightContainer");
+    const section = document.getElementById("insightSection");
+    const insights = (typeof COMMENT_INSIGHTS !== "undefined" && COMMENT_INSIGHTS) || null;
+
+    if (!insights || !insights.by_category || Object.keys(insights.by_category).length === 0) {
+      section.style.display = "none";
+      return;
+    }
+
+    const generated = insights.generated_at
+      ? `<div class="insight-meta">📅 洞察生成时间：${formatDate(insights.generated_at)} · 来源：${insights.total_videos_analyzed || 0} 条高互动视频评论</div>`
+      : "";
+
+    const cards = Object.entries(insights.by_category).map(([cat, data]) => {
+      const questions = (data.高频问题 || []).map(q =>
+        `<li>${escapeHTML(q)}</li>`).join("");
+      const debates = (data.争议话题 || []).map(q =>
+        `<li>${escapeHTML(q)}</li>`).join("");
+      const buzz = (data.口碑参考 || []).map(q =>
+        `<li>${escapeHTML(q)}</li>`).join("");
+      const pricing = (data.价格敏感点 || []).map(q =>
+        `<li>${escapeHTML(q)}</li>`).join("");
+
+      return `
+        <div class="insight-card" style="--cat:var(--cat-${cat});">
+          <div class="insight-card-header">
+            <span class="insight-cat">${escapeHTML(cat)}</span>
+            <span class="insight-stat">${data.评论样本 || 0} 条评论样本</span>
+          </div>
+          <div class="insight-body">
+            ${questions ? `
+              <div class="insight-row">
+                <div class="insight-label">🔥 高频问题</div>
+                <ul class="insight-list">${questions}</ul>
+              </div>` : ""}
+            ${debates ? `
+              <div class="insight-row">
+                <div class="insight-label">⚔️ 争议话题</div>
+                <ul class="insight-list">${debates}</ul>
+              </div>` : ""}
+            ${buzz ? `
+              <div class="insight-row">
+                <div class="insight-label">💬 口碑参考</div>
+                <ul class="insight-list">${buzz}</ul>
+              </div>` : ""}
+            ${pricing ? `
+              <div class="insight-row">
+                <div class="insight-label">💰 价格敏感点</div>
+                <ul class="insight-list">${pricing}</ul>
+              </div>` : ""}
+          </div>
+          ${data.选题建议 ? `<div class="insight-tip">💡 选题建议：${escapeHTML(data.选题建议)}</div>` : ""}
+        </div>`;
+    }).join("");
+
+    box.innerHTML = generated + cards;
+  }
+
   // ---------- 渲染：统计卡片 ----------
   function renderStats() {
     const items = TODAY_DATA.items || [];
@@ -213,6 +273,7 @@
   function init() {
     renderStats();
     renderFilterTags();
+    renderInsight();
     renderRecommendations();
     renderAllNews();
     renderArchive();
