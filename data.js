@@ -1,7 +1,7 @@
-/* 家电行业日报数据 · 生成于 2026-07-01 23:51 */
+/* 家电行业日报数据 · 生成于 2026-07-01 23:53 */
 const TODAY_DATA = {
   "date": "2026-07-01",
-  "run_time": "23:51",
+  "run_time": "23:53",
   "items": [
     {
       "title": "滤网智换 清洁无忧 樱花吸油烟机SCR-Q633解锁烹饪洁净新体验",
@@ -37,6 +37,39 @@ const TODAY_DATA = {
       "title_suggest": ""
     },
     {
+      "title": "格力亮相国家博物馆中国制造“十四五”成就展 2026-01-05",
+      "url": "https://www.gree.com/Article/view/dd55025cd3094dbeb9b97412bd45f963",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 7.9,
+      "angle": "综合家电行业动态+选购参考",
+      "title_suggest": ""
+    },
+    {
+      "title": "格力电器主导的IEC国际标准发布，引领全球光伏产业规范发展 2026-01-05",
+      "url": "https://www.gree.com/Article/view/89fc7078f9a04da8826ae130288097ad",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 7.9,
+      "angle": "综合家电新品速报+选购建议",
+      "title_suggest": ""
+    },
+    {
+      "title": "2024-05-23 再跨越！格力在洛阳举办冰洗生活电器战略发布会",
+      "url": "https://www.gree.com/Article/view/55e8504652f747889c18238881782a16",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 7.9,
+      "angle": "综合家电新品速报+选购建议",
+      "title_suggest": ""
+    },
+    {
       "title": "空调怎么选不踩坑假如导购讲真话 #空调 #空调怎么选 #家电 #装修 #避坑指南",
       "url": "https://www.douyin.com/video/7616306355913198875",
       "source": "抖音@李莽（家装家电避坑版）",
@@ -65,29 +98,15 @@ const TODAY_DATA = {
       "title_suggest": ""
     },
     {
-      "title": "锐评当代恶臭年轻人家电使用频率 #装修 #装修避坑 #锐评 #从夯到拉",
-      "url": "https://www.douyin.com/video/7596310912722636070",
-      "source": "抖音@嘉伟室内设计",
+      "title": "装修知识，快问快答 #装修 #装修避坑 #装修设计 #装修知识",
+      "url": "https://www.douyin.com/video/7614955967420207862",
+      "source": "抖音@廖工爱装修",
       "tier": "H3",
       "weight": 80,
       "category": "综合家电",
       "angle": "综合家电选购攻略（高收藏潜力）",
-      "douyin_interactions": 621000,
-      "zpid": "7596310912722636070",
-      "comment_status": "未抓取",
-      "score": 7.5,
-      "title_suggest": ""
-    },
-    {
-      "title": "锐评当代恶臭年轻人家电使用频率 #装修 #装修避坑 #锐评 #从夯到拉",
-      "url": "https://www.douyin.com/video/7596310912722636070",
-      "source": "抖音@嘉伟室内设计",
-      "tier": "H3",
-      "weight": 80,
-      "category": "综合家电",
-      "angle": "综合家电选购攻略（高收藏潜力）",
-      "douyin_interactions": 621000,
-      "zpid": "7596310912722636070",
+      "douyin_interactions": 176745,
+      "zpid": "7614955967420207862",
       "comment_status": "未抓取",
       "score": 7.5,
       "title_suggest": ""
@@ -107,6 +126,20 @@ const TODAY_DATA = {
       "title_suggest": ""
     },
     {
+      "title": "锐评哪些东西买品牌夯爆了，哪些拉完了 #装修 #装修避坑 #锐评 #从夯到拉",
+      "url": "https://www.douyin.com/video/7606338425012162624",
+      "source": "抖音@嘉伟室内设计",
+      "tier": "H3",
+      "weight": 80,
+      "category": "综合家电",
+      "angle": "综合家电选购攻略（高收藏潜力）",
+      "douyin_interactions": 309930,
+      "zpid": "7606338425012162624",
+      "comment_status": "未抓取",
+      "score": 7.5,
+      "title_suggest": ""
+    },
+    {
       "title": "阳台这些东西谁装谁后悔#装修 #装修避坑 #装修设计",
       "url": "https://www.douyin.com/video/7605220275352767790",
       "source": "抖音@老诚讲装修",
@@ -117,6 +150,20 @@ const TODAY_DATA = {
       "douyin_interactions": 310343,
       "zpid": "7605220275352767790",
       "comment_status": "未抓取",
+      "score": 7.5,
+      "title_suggest": ""
+    },
+    {
+      "title": "家电选择困难症，这视频你必看 #装修 #装修避坑 #家电 #家电怎么选",
+      "url": "https://www.douyin.com/video/7606349782520575567",
+      "source": "抖音@嘉伟室内设计",
+      "tier": "H3",
+      "weight": 80,
+      "category": "综合家电",
+      "angle": "综合家电选购攻略（高收藏潜力）",
+      "douyin_interactions": 268419,
+      "zpid": "7606349782520575567",
+      "comment_status": "抓取中",
       "score": 7.5,
       "title_suggest": ""
     },
@@ -144,62 +191,6 @@ const TODAY_DATA = {
       "angle": "综合家电选购攻略（高收藏潜力）",
       "douyin_interactions": 457422,
       "zpid": "7634487735406923008",
-      "comment_status": "抓取中",
-      "score": 7.0,
-      "title_suggest": ""
-    },
-    {
-      "title": "装修千万别跟风！盘点那些英年早逝的网红装修，看完包你不踩坑！ #装修知识 #装修避坑 #热水器 #装修哪有不疯的",
-      "url": "https://www.douyin.com/video/7604745895519243433",
-      "source": "抖音@装修导航研究员",
-      "tier": "H3",
-      "weight": 80,
-      "category": "热水器",
-      "angle": "热水器选购攻略（高收藏潜力）",
-      "douyin_interactions": 614909,
-      "zpid": "7604745895519243433",
-      "comment_status": "抓取中",
-      "score": 7.0,
-      "title_suggest": ""
-    },
-    {
-      "title": "家电安装这些坑一定要知道  搞懂安装师傅潜台词 #家电 #家电安装 #装修 #避坑指南 #装修细节",
-      "url": "https://www.douyin.com/video/7634487735406923008",
-      "source": "抖音@乐白优选家电",
-      "tier": "H3",
-      "weight": 80,
-      "category": "综合家电",
-      "angle": "综合家电选购攻略（高收藏潜力）",
-      "douyin_interactions": 457422,
-      "zpid": "7634487735406923008",
-      "comment_status": "抓取中",
-      "score": 7.0,
-      "title_suggest": ""
-    },
-    {
-      "title": "家电安装这些坑一定要知道  搞懂安装师傅潜台词 #家电 #家电安装 #装修 #避坑指南 #装修细节",
-      "url": "https://www.douyin.com/video/7634487735406923008",
-      "source": "抖音@乐白优选家电",
-      "tier": "H3",
-      "weight": 80,
-      "category": "综合家电",
-      "angle": "综合家电选购攻略（高收藏潜力）",
-      "douyin_interactions": 457422,
-      "zpid": "7634487735406923008",
-      "comment_status": "抓取中",
-      "score": 7.0,
-      "title_suggest": ""
-    },
-    {
-      "title": "深夜偷偷告诉你， 装修中这几种千万不要选！！#装修 #装修避坑 #油烟机 #新房 #家装装修",
-      "url": "https://www.douyin.com/video/7613013129219793658",
-      "source": "抖音@库库装修家",
-      "tier": "H3",
-      "weight": 80,
-      "category": "厨电",
-      "angle": "厨电选购攻略（高收藏潜力）",
-      "douyin_interactions": 394079,
-      "zpid": "7613013129219793658",
       "comment_status": "抓取中",
       "score": 7.0,
       "title_suggest": ""
