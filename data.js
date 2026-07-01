@@ -1,140 +1,173 @@
-// ============================================
-// 家电行业信息日报 — 数据文件
-// 更新日期：2026-07-01
-// 数据结构：title / url / source / tier / category / score / angle
-// ============================================
-
+/* 家电行业日报数据 · 生成于 2026-07-01 23:14 */
 const TODAY_DATA = {
   "date": "2026-07-01",
+  "run_time": "23:14",
   "items": [
     {
-      "title": "625亿元！第三批国补已下达！家电以旧换新再加码",
+      "title": "滤网智换 清洁无忧 樱花吸油烟机SCR-Q633解锁烹饪洁净新体验",
+      "url": "https://kitchen.cheaa.com/2026/0104/652094.shtml",
+      "source": "中国家电网",
+      "tier": "H2",
+      "weight": 100,
+      "category": "厨电",
+      "score": 9.4,
+      "angle": "厨电行业动态+选购参考",
+      "title_suggest": ""
+    },
+    {
+      "title": "625亿元！第三批“国补”已下达！",
       "url": "https://news.cheaa.com/2026/0626/656072.shtml",
       "source": "中国家电网",
       "tier": "H2",
+      "weight": 100,
       "category": "综合家电",
-      "score": 9.2,
-      "angle": "政策解读 + 各省落地进度 + 消费者省钱攻略"
-    },
-    {
-      "title": "美的发布全屋智能3.0：AI大模型接入空调冰箱洗衣机",
-      "url": "https://news.cheaa.com/2026/0628/656102.shtml",
-      "source": "中国家电网",
-      "tier": "H1",
-      "category": "智能家居",
-      "score": 8.8,
-      "angle": "AI大模型家电首测 + 与华为小米方案对比"
-    },
-    {
-      "title": "格力董明珠再谈空调技术：光伏直驱空调将成标配",
-      "url": "https://news.cheaa.com/2026/0627/656088.shtml",
-      "source": "中国家电网",
-      "tier": "H1",
-      "category": "空调",
-      "score": 8.3,
-      "angle": "光伏空调技术原理 + 是否值得买的实测角度"
-    },
-    {
-      "title": "海尔三筒洗衣机走红海外：TikTok播放量破亿",
-      "url": "https://news.cheaa.com/2026/0629/656115.shtml",
-      "source": "万维家电网",
-      "tier": "H2",
-      "category": "洗衣机",
       "score": 8.1,
-      "angle": "出口爆款解读 + 国内外定价差异 + 适合谁买"
+      "angle": "政策解读+省钱攻略",
+      "title_suggest": ""
     },
     {
-      "title": "海信100吋激光电视跌破万元：大屏市场重新洗牌",
-      "url": "https://news.cheaa.com/2026/0630/656130.shtml",
+      "title": "一季度洗碗机下滑7%，地方补贴与新国标能否成为“破局双翼...",
+      "url": "https://news.cheaa.com/2026/0616/655748.shtml",
       "source": "中国家电网",
       "tier": "H2",
-      "category": "电视",
-      "score": 8.0,
-      "angle": "激光电视 vs 液晶电视选购指南 + 万元档横评"
-    },
-    {
-      "title": "10天2张罚单+实控人股份遭冻结，倍轻松轻松不再",
-      "url": "https://news.cheaa.com/2026/0625/655992.shtml",
-      "source": "中国家电网",
-      "tier": "H2",
-      "category": "小家电",
-      "score": 7.5,
-      "angle": "小家电消费者避雷 + 品牌信任度盘点"
-    },
-    {
-      "title": "老板电器发布数字厨电套系：蒸烤一体机主打AI菜谱",
-      "url": "https://news.cheaa.com/2026/0628/656108.shtml",
-      "source": "万维家电网",
-      "tier": "H2",
+      "weight": 100,
       "category": "厨电",
-      "score": 7.3,
-      "angle": "AI菜谱实测 + 蒸烤一体机选购避坑"
+      "score": 8.1,
+      "angle": "政策解读+省钱攻略",
+      "title_suggest": ""
     },
     {
-      "title": "追觅扫地机器人X40 Ultra评测：仿生机械臂实测",
-      "url": "https://news.cheaa.com/2026/0629/656120.shtml",
-      "source": "万维家电网",
-      "tier": "H2",
-      "category": "清洁电器",
-      "score": 7.8,
-      "angle": "机械臂扫地机横评 + 4000-6000元档推荐"
-    },
-    {
-      "title": "卡萨帝平嵌冰箱新品上市：零距离嵌入橱柜成卖点",
-      "url": "https://news.cheaa.com/2026/0625/655995.shtml",
+      "title": "直击冰箱新能效‘大考’",
+      "url": "https://www.cheaa.com/CNGC",
       "source": "中国家电网",
-      "tier": "H3",
+      "tier": "H2",
+      "weight": 100,
       "category": "冰箱",
-      "score": 6.9,
-      "angle": "平嵌冰箱选购指南 + 散热预留尺寸避坑"
+      "score": 7.5,
+      "angle": "冰箱行业动态+选购参考",
+      "title_suggest": ""
     },
     {
-      "title": "618燃气热水器销量榜：万和、能率、林内位居前三",
-      "url": "https://news.cheaa.com/2026/0620/655880.shtml",
+      "title": "2026年国补政策定了",
+      "url": "https://news.cheaa.com/2025/1231/652056.shtml",
       "source": "中国家电网",
       "tier": "H2",
-      "category": "热水器",
-      "score": 6.5,
-      "angle": "燃气热水器选购 + 恒温零冷水技术解读"
-    },
-    {
-      "title": "小米米家空调挂机降价：1.5匹新一级能效跌破2000元",
-      "url": "https://news.cheaa.com/2026/0630/656135.shtml",
-      "source": "中国家电网",
-      "tier": "H2",
-      "category": "空调",
-      "score": 7.1,
-      "angle": "2000元档空调横评 + 性价比之王盘点"
-    },
-    {
-      "title": "九阳破壁机召回公告：涉及机型Y3/Y5共12万台",
-      "url": "https://news.cheaa.com/2026/0624/655985.shtml",
-      "source": "中国家电网",
-      "tier": "H2",
-      "category": "小家电",
-      "score": 6.8,
-      "angle": "召回机型查询 + 破壁机安全选购提醒"
-    },
-    {
-      "title": "TCL华星发布首款印刷OLED电视屏：国产屏幕新突破",
-      "url": "https://news.cheaa.com/2026/0626/656075.shtml",
-      "source": "中国家电网",
-      "tier": "H3",
-      "category": "电视",
-      "score": 6.2,
-      "angle": "印刷OLED技术科普 + 对普通消费者的影响"
-    },
-    {
-      "title": "京东家电618战报：空调品类同比增长35%",
-      "url": "https://news.cheaa.com/2026/0620/655870.shtml",
-      "source": "中国家电网",
-      "tier": "H3",
+      "weight": 100,
       "category": "综合家电",
-      "score": 5.8,
-      "angle": "618空调热销榜单复盘 + 下半年趋势预测"
+      "score": 7.5,
+      "angle": "政策解读+省钱攻略",
+      "title_suggest": ""
+    },
+    {
+      "title": "格力亮相国家博物馆中国制造“十四五”成就展 2026-01-05",
+      "url": "https://www.gree.com/Article/view/dd55025cd3094dbeb9b97412bd45f963",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 7.9,
+      "angle": "综合家电行业动态+选购参考",
+      "title_suggest": ""
+    },
+    {
+      "title": "格力电器主导的IEC国际标准发布，引领全球光伏产业规范发展 2026-01-05",
+      "url": "https://www.gree.com/Article/view/89fc7078f9a04da8826ae130288097ad",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 7.9,
+      "angle": "综合家电新品速报+选购建议",
+      "title_suggest": ""
+    },
+    {
+      "title": "2024-05-23 再跨越！格力在洛阳举办冰洗生活电器战略发布会",
+      "url": "https://www.gree.com/Article/view/55e8504652f747889c18238881782a16",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 7.9,
+      "angle": "综合家电新品速报+选购建议",
+      "title_suggest": ""
+    },
+    {
+      "title": "2024-05-16 标准领航！格力牵头制修订的7项新标发布",
+      "url": "https://www.gree.com/Article/view/05454759436c4edd85b8b60dc2300b9e",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 7.9,
+      "angle": "综合家电新品速报+选购建议",
+      "title_suggest": ""
+    },
+    {
+      "title": "2025中国洗碗机行业高峰论坛",
+      "url": "https://www.cheaa.com/CDIS/",
+      "source": "中国家电网",
+      "tier": "H2",
+      "weight": 100,
+      "category": "厨电",
+      "score": 6.9,
+      "angle": "厨电行业动态+选购参考",
+      "title_suggest": ""
+    },
+    {
+      "title": "董明珠在股东大会上喊话股东：家电不改为",
+      "url": "https://news.cheaa.com/2026/0701/656159.shtml",
+      "source": "中国家电网",
+      "tier": "H2",
+      "weight": 100,
+      "category": "综合家电",
+      "score": 6.9,
+      "angle": "综合家电行业动态+选购参考",
+      "title_suggest": ""
+    },
+    {
+      "title": "美的方洪波：我们有敢闯敢干的地域基因在",
+      "url": "https://news.cheaa.com/2026/0630/656154.shtml",
+      "source": "中国家电网",
+      "tier": "H2",
+      "weight": 100,
+      "category": "综合家电",
+      "score": 6.9,
+      "angle": "综合家电行业动态+选购参考",
+      "title_suggest": ""
+    },
+    {
+      "title": "格力亮相AIE博览会：以全产业链自主创新，诠释“中国造”实力 2026-01-05",
+      "url": "https://www.gree.com/Article/view/a64757ce87624ee39f3cd54e0263cd4c",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 7.3,
+      "angle": "综合家电行业动态+选购参考",
+      "title_suggest": ""
+    },
+    {
+      "title": "_导购_|_梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案_ _九月_",
+      "url": "https://family.pconline.com.cn/2175/21757643.html \"梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案\"",
+      "source": "太平洋家电",
+      "tier": "H2",
+      "weight": 70,
+      "category": "小家电",
+      "score": 4.8,
+      "angle": "小家电行业动态+选购参考",
+      "title_suggest": ""
+    },
+    {
+      "title": "_导购_|_除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能_ _九月_",
+      "url": "https://family.pconline.com.cn/2177/21776625.html \"除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能\"",
+      "source": "太平洋家电",
+      "tier": "H2",
+      "weight": 70,
+      "category": "小家电",
+      "score": 4.4,
+      "angle": "小家电行业动态+选购参考",
+      "title_suggest": ""
     }
   ]
 };
-
-// 历史归档（演示为空，按 {date, items:[...]} 结构填充）
 const ARCHIVES = [];
