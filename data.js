@@ -1,7 +1,7 @@
-/* 家电行业日报数据 · 生成于 2026-07-01 23:53 */
+/* 家电行业日报数据 · 生成于 2026-07-01 23:55 */
 const TODAY_DATA = {
   "date": "2026-07-01",
-  "run_time": "23:53",
+  "run_time": "23:55",
   "items": [
     {
       "title": "滤网智换 清洁无忧 樱花吸油烟机SCR-Q633解锁烹饪洁净新体验",
@@ -70,6 +70,17 @@ const TODAY_DATA = {
       "title_suggest": ""
     },
     {
+      "title": "2024-05-16 标准领航！格力牵头制修订的7项新标发布",
+      "url": "https://www.gree.com/Article/view/05454759436c4edd85b8b60dc2300b9e",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 7.9,
+      "angle": "综合家电新品速报+选购建议",
+      "title_suggest": ""
+    },
+    {
       "title": "空调怎么选不踩坑假如导购讲真话 #空调 #空调怎么选 #家电 #装修 #避坑指南",
       "url": "https://www.douyin.com/video/7616306355913198875",
       "source": "抖音@李莽（家装家电避坑版）",
@@ -126,73 +137,47 @@ const TODAY_DATA = {
       "title_suggest": ""
     },
     {
-      "title": "锐评哪些东西买品牌夯爆了，哪些拉完了 #装修 #装修避坑 #锐评 #从夯到拉",
-      "url": "https://www.douyin.com/video/7606338425012162624",
-      "source": "抖音@嘉伟室内设计",
-      "tier": "H3",
-      "weight": 80,
+      "title": "建议：买3大家电，抓住4点“选购定律”，绝非误导，都是经验总结",
+      "url": "https://www.toutiao.com/article/7656396666127270400/",
+      "source": "今日头条",
+      "tier": "H4",
+      "weight": 75,
       "category": "综合家电",
-      "angle": "综合家电选购攻略（高收藏潜力）",
-      "douyin_interactions": 309930,
-      "zpid": "7606338425012162624",
-      "comment_status": "未抓取",
-      "score": 7.5,
-      "title_suggest": ""
-    },
-    {
-      "title": "阳台这些东西谁装谁后悔#装修 #装修避坑 #装修设计",
-      "url": "https://www.douyin.com/video/7605220275352767790",
-      "source": "抖音@老诚讲装修",
-      "tier": "H3",
-      "weight": 80,
-      "category": "综合家电",
-      "angle": "综合家电选购攻略（高收藏潜力）",
-      "douyin_interactions": 310343,
-      "zpid": "7605220275352767790",
-      "comment_status": "未抓取",
-      "score": 7.5,
-      "title_suggest": ""
-    },
-    {
-      "title": "家电选择困难症，这视频你必看 #装修 #装修避坑 #家电 #家电怎么选",
-      "url": "https://www.douyin.com/video/7606349782520575567",
-      "source": "抖音@嘉伟室内设计",
-      "tier": "H3",
-      "weight": 80,
-      "category": "综合家电",
-      "angle": "综合家电选购攻略（高收藏潜力）",
-      "douyin_interactions": 268419,
-      "zpid": "7606349782520575567",
-      "comment_status": "抓取中",
-      "score": 7.5,
-      "title_suggest": ""
-    },
-    {
-      "title": "装修千万别跟风！盘点那些英年早逝的网红装修，看完包你不踩坑！ #装修知识 #装修避坑 #热水器 #装修哪有不疯的",
-      "url": "https://www.douyin.com/video/7604745895519243433",
-      "source": "抖音@装修导航研究员",
-      "tier": "H3",
-      "weight": 80,
-      "category": "热水器",
-      "angle": "热水器选购攻略（高收藏潜力）",
-      "douyin_interactions": 614909,
-      "zpid": "7604745895519243433",
-      "comment_status": "抓取中",
       "score": 7.0,
+      "angle": "综合家电选购攻略（高收藏潜力）",
       "title_suggest": ""
     },
     {
-      "title": "家电安装这些坑一定要知道  搞懂安装师傅潜台词 #家电 #家电安装 #装修 #避坑指南 #装修细节",
-      "url": "https://www.douyin.com/video/7634487735406923008",
-      "source": "抖音@乐白优选家电",
-      "tier": "H3",
-      "weight": 80,
-      "category": "综合家电",
-      "angle": "综合家电选购攻略（高收藏潜力）",
-      "douyin_interactions": 457422,
-      "zpid": "7634487735406923008",
-      "comment_status": "抓取中",
+      "title": "最新市场测评洗衣机哪个牌子好？2026家用洗衣机选购攻略",
+      "url": "https://www.toutiao.com/article/7656672684947800595/",
+      "source": "今日头条",
+      "tier": "H4",
+      "weight": 75,
+      "category": "洗衣机",
       "score": 7.0,
+      "angle": "洗衣机选购攻略（高收藏潜力）",
+      "title_suggest": ""
+    },
+    {
+      "title": "_导购_|_梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案_ _九月_",
+      "url": "https://family.pconline.com.cn/2175/21757643.html \"梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案\"",
+      "source": "太平洋家电",
+      "tier": "H2",
+      "weight": 70,
+      "category": "小家电",
+      "score": 4.8,
+      "angle": "小家电行业动态+选购参考",
+      "title_suggest": ""
+    },
+    {
+      "title": "_导购_|_除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能_ _九月_",
+      "url": "https://family.pconline.com.cn/2177/21776625.html \"除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能\"",
+      "source": "太平洋家电",
+      "tier": "H2",
+      "weight": 70,
+      "category": "小家电",
+      "score": 4.4,
+      "angle": "小家电行业动态+选购参考",
       "title_suggest": ""
     }
   ]
