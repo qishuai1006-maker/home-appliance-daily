@@ -402,6 +402,36 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 16px;
 }
+
+/* ---------- 互动数据徽章 ---------- */
+.inter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.12);
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.inter-badge.comments {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+}
+
+/* ---------- 建议标题 ---------- */
+.title-suggest {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--gold);
+  line-height: 1.5;
+}
 .idea-card {
   background: linear-gradient(135deg, rgba(56, 189, 248, 0.06), rgba(168, 85, 247, 0.04));
   border: 1px solid rgba(56, 189, 248, 0.2);

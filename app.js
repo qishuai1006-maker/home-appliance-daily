@@ -58,8 +58,22 @@
     const tier = (item.tier || "").toUpperCase();
     const stars = scoreStars(item.score);
 
+    // 互动数据徽章
+    const inter = item.douyin_interactions;
+    const interHTML = inter
+      ? `<span class="inter-badge">🔥${formatK(inter)}</span>`
+      : "";
+    const commentCount = item.douyin_comments;
+    const commentHTML = commentCount
+      ? `<span class="inter-badge comments">💬${commentCount}</span>`
+      : "";
+
     const angleHTML = item.angle
       ? `<div class="angle"><span class="angle-icon">💡</span><span>${escapeHTML(item.angle)}</span></div>`
+      : "";
+
+    const titleSuggestHTML = item.title_suggest
+      ? `<div class="title-suggest">📌 建议标题：${escapeHTML(item.title_suggest)}</div>`
       : "";
 
     return `
@@ -71,15 +85,29 @@
         </h3>
         <div class="card-meta">
           ${catTagHTML(item.category)}
-          ${tier ? `<span class="tier-badge tier-${tier}">${tier}</span>` : ""}
+          ${tier ? `<span class="tier-badge tier-${tier}">${tierLabel(tier)}</span>` : ""}
           <span class="source-tag">📡 ${escapeHTML(item.source || "未知来源")}</span>
+          ${interHTML}
+          ${commentHTML}
           <span class="score">
             <span class="stars">${stars}</span>
             <span class="score-num">${item.score.toFixed(1)}</span>
           </span>
         </div>
         ${angleHTML}
+        ${titleSuggestHTML}
       </div>`;
+  }
+
+  function tierLabel(tier) {
+    const map = {"H1": "品牌", "H2": "媒体", "H3": "抖音", "H4": "头条"};
+    return map[tier] || tier;
+  }
+
+  function formatK(n) {
+    if (n >= 10000) return (n / 10000).toFixed(1) + "w";
+    if (n >= 1000) return (n / 1000).toFixed(1) + "k";
+    return n;
   }
 
   // ---------- 渲染：选题灵感（AI 生成） ----------
