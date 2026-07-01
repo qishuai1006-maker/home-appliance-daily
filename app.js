@@ -82,6 +82,44 @@
       </div>`;
   }
 
+  // ---------- 渲染：选题灵感（AI 生成） ----------
+  function renderIdeas() {
+    const box = document.getElementById("ideasContainer");
+    const section = document.getElementById("ideasSection");
+    const ideas = (typeof TOPIC_IDEAS !== "undefined" && TOPIC_IDEAS) || null;
+
+    if (!ideas || ideas.length === 0) {
+      section.style.display = "none";
+      return;
+    }
+
+    const cards = ideas.map((idea, i) => {
+      const title = idea.title || "";
+      const cat = idea.category || "综合";
+      const angle = idea.angle || "";
+      const reason = idea.reason || "";
+      const refs = idea.refs || [];
+
+      const refsHTML = refs.length
+        ? `<div class="idea-refs">📎 参考素材：第 ${refs.join("、")} 条</div>`
+        : "";
+
+      return `
+        <div class="idea-card">
+          <div class="idea-header">
+            <span class="idea-num">${i + 1}</span>
+            <span class="cat-tag" style="--cat:var(--cat-${cat});">${cat}</span>
+          </div>
+          <h3 class="idea-title">${escapeHTML(title)}</h3>
+          ${angle ? `<div class="idea-angle"><span class="idea-label">📝 写法</span>${escapeHTML(angle)}</div>` : ""}
+          ${reason ? `<div class="idea-reason"><span class="idea-label">🔥 为什么能火</span>${escapeHTML(reason)}</div>` : ""}
+          ${refsHTML}
+        </div>`;
+    }).join("");
+
+    box.innerHTML = cards;
+  }
+
   // ---------- 渲染：用户评论洞察（选题金矿） ----------
   function renderInsight() {
     const box = document.getElementById("insightContainer");
@@ -273,6 +311,7 @@
   function init() {
     renderStats();
     renderFilterTags();
+    renderIdeas();
     renderInsight();
     renderRecommendations();
     renderAllNews();

@@ -396,6 +396,71 @@ body {
 }
 .footer-note { margin-top: 6px; font-size: 12px; opacity: 0.7; }
 
+/* ---------- 选题灵感卡片 ---------- */
+.ideas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+.idea-card {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.06), rgba(168, 85, 247, 0.04));
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: var(--radius);
+  padding: 18px;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.idea-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 8px 32px rgba(56, 189, 248, 0.12);
+}
+.idea-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.idea-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8, #a855f7);
+  color: #0a0e1a;
+  font-weight: 700;
+  font-size: 14px;
+}
+.idea-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 14px;
+  line-height: 1.4;
+}
+.idea-angle, .idea-reason {
+  font-size: 13.5px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.idea-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-right: 6px;
+  white-space: nowrap;
+}
+.idea-refs {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+
 /* ---------- 用户评论洞察 ---------- */
 .insight-grid {
   display: grid;

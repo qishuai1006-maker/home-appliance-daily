@@ -1,7 +1,7 @@
-/* 家电行业日报数据 · 生成于 2026-07-02 01:28 */
+/* 家电行业日报数据 · 生成于 2026-07-02 02:18 */
 const TODAY_DATA = {
   "date": "2026-07-02",
-  "run_time": "01:28",
+  "run_time": "02:18",
   "items": [
     {
       "title": "第16集：【买前必看】618空调选购攻略，1000-7000全价位推荐#空调 #空调选购 #空调推荐 #618 #618空调",
@@ -10,14 +10,14 @@ const TODAY_DATA = {
       "tier": "H3",
       "weight": 85,
       "category": "空调",
-      "angle": "空调选购攻略（高收藏潜力）",
+      "angle": "618空调选购攻略",
       "douyin_interactions": 18476,
       "douyin_comments": 1112,
       "douyin_pub_date": "2026-05-22",
       "zpid": "7642649124428320036",
       "comment_status": "抓取中",
       "score": 9.0,
-      "title_suggest": ""
+      "title_suggest": "618空调选购攻略：全价位空调推荐"
     },
     {
       "title": "空调怎么选不踩坑 ❗ 线上线下一样吗线上对应线下什么型号，今天一起唠一唠#空调 #空调怎么选 #家电 #装修 #避坑指南",
@@ -26,14 +26,14 @@ const TODAY_DATA = {
       "tier": "H3",
       "weight": 85,
       "category": "空调",
-      "angle": "空调选购攻略（高收藏潜力）",
+      "angle": "空调选购避坑指南",
       "douyin_interactions": 28935,
       "douyin_comments": 252,
       "douyin_pub_date": "2026-06-24",
       "zpid": "7654136809366031679",
       "comment_status": "抓取中",
       "score": 9.0,
-      "title_suggest": ""
+      "title_suggest": "空调选购避坑指南：线上线下选购差异"
     },
     {
       "title": "净水器怎么选不踩坑 ❗ 听懂导购潜台词生活小tips：家里喝桶装水的铁子，要定期清洗下软管和饮水机，那玩意老脏了#净水器 #净水器怎么选 #家电 #装修 #避坑",
@@ -42,14 +42,14 @@ const TODAY_DATA = {
       "tier": "H3",
       "weight": 85,
       "category": "小家电",
-      "angle": "小家电选购攻略（高收藏潜力）",
+      "angle": "净水器选购避坑指南",
       "douyin_interactions": 21126,
       "douyin_comments": 120,
       "douyin_pub_date": "2026-06-17",
       "zpid": "7652302085723016499",
       "comment_status": "未抓取",
       "score": 9.0,
-      "title_suggest": ""
+      "title_suggest": "净水器选购避坑指南：导购潜台词解析"
     },
     {
       "title": "第9集：618燃气热水器超全攻略：参数、品牌、型号…不踩坑！#燃气热水器 #燃气热水器怎么选 #618 #燃气热水器选购 #热水器",
@@ -111,85 +111,43 @@ const TODAY_DATA = {
       "title_suggest": ""
     },
     {
-      "title": "30款冰箱，3个注意点，618海尔/卡萨帝冰箱，应该如何选？#海尔冰箱 #海尔麦浪冰箱 #卡萨帝冰箱#海尔大海鲸冰箱#卡萨帝原石冰箱",
-      "url": "https://www.douyin.com/video/7643004022001126698",
-      "source": "抖音@Wilson学长",
-      "tier": "H3",
-      "weight": 85,
-      "category": "冰箱",
-      "angle": "冰箱行业动态+选购参考",
-      "douyin_interactions": 11628,
-      "douyin_comments": 316,
-      "douyin_pub_date": "2026-05-23",
-      "zpid": "7643004022001126698",
-      "comment_status": "抓取中",
+      "title": "一季度洗碗机下滑7%，地方补贴与新国标能否成为“破局双翼...",
+      "url": "https://news.cheaa.com/2026/0616/655748.shtml",
+      "source": "中国家电网",
+      "tier": "H2",
+      "weight": 100,
+      "category": "厨电",
+      "pub_date": "2026-06-16",
       "score": 8.5,
-      "title_suggest": ""
+      "angle": "分析洗碗机市场变化",
+      "title_suggest": "洗碗机市场下滑，地方补贴与新国标能否破局？"
     },
     {
-      "title": "直击冰箱新能效‘大考’",
-      "url": "https://www.cheaa.com/CNGC",
+      "title": "625亿元！第三批“国补”已下达！",
+      "url": "https://news.cheaa.com/2026/0626/656072.shtml",
       "source": "中国家电网",
       "tier": "H2",
       "weight": 100,
-      "category": "冰箱",
-      "score": 8.0,
-      "angle": "能效标准",
-      "title_suggest": "冰箱新能效标准‘大考’背后的行业变革"
-    },
-    {
-      "title": "双臂劲刮、泡沫深净，实测感受追觅T60 Ultra洗地机的“权威实力”",
-      "url": "https://sh.cheaa.com/2025/1230/652041.shtml",
-      "source": "中国家电网",
-      "tier": "H2",
-      "weight": 100,
-      "category": "清洁电器",
-      "score": 8.0,
-      "angle": "产品评测",
-      "title_suggest": "追觅T60 Ultra洗地机实测解析"
-    },
-    {
-      "title": "格力亮相国家博物馆中国制造“十四五”成就展 2026-01-05",
-      "url": "https://www.gree.com/Article/view/dd55025cd3094dbeb9b97412bd45f963",
-      "source": "格力",
-      "tier": "H1",
-      "weight": 90,
       "category": "综合家电",
-      "score": 7.8,
-      "angle": "综合家电行业动态+选购参考",
-      "title_suggest": ""
+      "pub_date": "2026-06-26",
+      "score": 8.0,
+      "angle": "国补政策",
+      "title_suggest": "625亿元‘国补’下达对家电行业影响解析"
     },
     {
-      "title": "2024-05-23 再跨越！格力在洛阳举办冰洗生活电器战略发布会",
-      "url": "https://www.gree.com/Article/view/55e8504652f747889c18238881782a16",
-      "source": "格力",
-      "tier": "H1",
-      "weight": 90,
-      "category": "综合家电",
-      "score": 7.8,
-      "angle": "综合家电新品速报+选购建议",
-      "title_suggest": ""
-    },
-    {
-      "title": "九阳B693破壁机评测：静音细腻，全能清洁更省心",
-      "url": "https://jd.zol.com.cn/1207/12077755.html",
-      "source": "中关村在线家电",
-      "tier": "H2",
-      "weight": 70,
-      "category": "小家电",
-      "score": 7.8,
-      "angle": "小家电行业动态+选购参考",
-      "title_suggest": ""
-    },
-    {
-      "title": "最新中央空调销量排行榜 适合大户型母婴家庭的静音节能款",
-      "url": "https://jd.zol.com.cn/1208/12083862.html",
-      "source": "中关村在线家电",
-      "tier": "H2",
-      "weight": 70,
+      "title": "夏天第一次开空调前，这几个步骤千万不能忘！#空调#空调清洗#空调维修#空调滤芯",
+      "url": "https://www.douyin.com/video/7634525768453819691",
+      "source": "抖音@哏工侃智能",
+      "tier": "H3",
+      "weight": 80,
       "category": "空调",
-      "score": 7.3,
       "angle": "空调行业动态+选购参考",
+      "douyin_interactions": 536485,
+      "douyin_comments": 3373,
+      "douyin_pub_date": "2026-04-30",
+      "zpid": "7634525768453819691",
+      "comment_status": "抓取中",
+      "score": 7.3,
       "title_suggest": ""
     },
     {
@@ -202,6 +160,50 @@ const TODAY_DATA = {
       "score": 7.3,
       "angle": "综合家电选购攻略（高收藏潜力）",
       "title_suggest": ""
+    },
+    {
+      "title": "_导购_|_除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能_ _九月_",
+      "url": "https://family.pconline.com.cn/2177/21776625.html \"除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能\"",
+      "source": "太平洋家电",
+      "tier": "H2",
+      "weight": 70,
+      "category": "小家电",
+      "score": 5.5,
+      "angle": "梅雨季除湿机选购指南",
+      "title_suggest": "梅雨季除湿机选购攻略：避免踩坑的十大品牌推荐"
+    },
+    {
+      "title": "_导购_|_梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案_ _九月_",
+      "url": "https://family.pconline.com.cn/2175/21757643.html \"梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案\"",
+      "source": "太平洋家电",
+      "tier": "H2",
+      "weight": 70,
+      "category": "小家电",
+      "score": 5.5,
+      "angle": "梅雨季除湿机选购指南",
+      "title_suggest": "梅雨季除湿机选购攻略：不踩坑的选购技巧"
+    },
+    {
+      "title": "北京盛世欣兴格力贸易有限公司",
+      "url": "https://www.gree.com/about/news.html",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 1.0,
+      "angle": "格力公司信息",
+      "title_suggest": "格力公司信息"
+    },
+    {
+      "title": "厦门盛世欣兴格力贸易有限公司",
+      "url": "http://www.gree.com/",
+      "source": "格力",
+      "tier": "H1",
+      "weight": 90,
+      "category": "综合家电",
+      "score": 1.0,
+      "angle": "格力公司信息",
+      "title_suggest": "格力公司信息"
     }
   ]
 };
@@ -391,3 +393,52 @@ const ARCHIVES = [
   }
 ];
 const COMMENT_INSIGHTS = null;
+const TOPIC_IDEAS = [
+  {
+    "title": "618空调选购必看：1000-7000全价位攻略，避开这些坑！",
+    "category": "空调",
+    "angle": "详细分析618空调选购要点，包括不同价位、品牌、型号推荐，以及避坑指南",
+    "reason": "618购物节即将来临，空调作为热门家电，用户搜索需求量大，相关内容热度高。参考素材：1, 2",
+    "refs": [
+      1,
+      2
+    ]
+  },
+  {
+    "title": "燃气热水器选购攻略：618超全参数解读，告别踩坑！",
+    "category": "热水器",
+    "angle": "针对618期间的燃气热水器，从参数、品牌、型号等方面进行详细解读，帮助用户避免选购误区",
+    "reason": "燃气热水器作为重要的家居电器，用户在618期间需求量大，相关内容热度高。参考素材：4",
+    "refs": [
+      4
+    ]
+  },
+  {
+    "title": "6招教你轻松选购净水器：告别水质疑虑，喝上健康水！",
+    "category": "净水器",
+    "angle": "针对净水器选购，提供实用技巧和注意事项，帮助用户选择合适的净水器，保障家庭饮水健康",
+    "reason": "随着生活水平的提高，人们对水质安全越来越重视，净水器选购相关内容热度高。参考素材：3",
+    "refs": [
+      3
+    ]
+  },
+  {
+    "title": "梅雨季除湿机选购指南：德业P40变频旗舰，告别潮湿！",
+    "category": "小家电",
+    "angle": "针对梅雨季除湿机选购，从品牌、型号、功能等方面进行对比推荐，帮助用户选购合适的除湿机",
+    "reason": "梅雨季节即将来临，除湿机需求量大，相关内容热度高。参考素材：12, 13",
+    "refs": [
+      12,
+      13
+    ]
+  },
+  {
+    "title": "618家电选购定律：抓住这4点，避开选购误区！",
+    "category": "综合家电",
+    "angle": "总结出家电选购的4个定律，帮助用户在618期间选购到性价比高的家电产品",
+    "reason": "618购物节期间，家电选购指南内容热度高，此内容提供实用选购技巧，具有较高参考价值。参考素材：11",
+    "refs": [
+      11
+    ]
+  }
+];
