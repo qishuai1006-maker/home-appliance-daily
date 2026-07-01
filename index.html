@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家电行业日报 · 每日选题决策辅助</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+  <!-- 背景网格层 -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- ============ HERO 区 ============ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">⚡ 每日更新 · 家电行业情报</div>
+      <h1 class="hero-title">家电行业日报</h1>
+      <p class="hero-subtitle">每日选题决策辅助</p>
+      <div class="hero-date" id="todayDate">—</div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ============ 统计卡片 ============ -->
+    <section class="stats" id="stats">
+      <div class="stat-card">
+        <div class="stat-icon">📰</div>
+        <div class="stat-value" id="statTotal">0</div>
+        <div class="stat-label">今日总数</div>
+      </div>
+      <div class="stat-card highlight">
+        <div class="stat-icon">🔥</div>
+        <div class="stat-value" id="statHighScore">0</div>
+        <div class="stat-label">高分选题 (≥7分)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🏷️</div>
+        <div class="stat-value" id="statCategory">0</div>
+        <div class="stat-label">品类覆盖</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📡</div>
+        <div class="stat-value" id="statSource">0</div>
+        <div class="stat-label">来源数</div>
+      </div>
+    </section>
+
+    <!-- ============ 筛选条 ============ -->
+    <section class="toolbar">
+      <div class="filter-tags" id="filterTags">
+        <!-- 品类标签由 app.js 渲染 -->
+      </div>
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="搜索标题 / 来源 / 选题角度…">
+      </div>
+    </section>
+
+    <!-- ============ 选题推荐区 (score≥8) ============ -->
+    <section class="section" id="recommendSection">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="section-icon">⭐</span> 高价值选题推荐
+          <span class="section-hint">评分 ≥ 8 分 · 优先考虑</span>
+        </h2>
+      </div>
+      <div class="recommend-grid" id="recommendGrid">
+        <!-- 由 app.js 渲染 -->
+      </div>
+    </section>
+
+    <!-- ============ 全部信息区 ============ -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="section-icon">📋</span> 全部信息
+          <span class="section-hint">按评分排序</span>
+        </h2>
+      </div>
+      <div class="news-grid" id="newsGrid">
+        <!-- 由 app.js 渲染 -->
+      </div>
+      <div class="empty-state" id="emptyState" style="display:none;">
+        😶 没有匹配的信息，试试调整筛选条件
+      </div>
+    </section>
+
+    <!-- ============ 历史归档区 ============ -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="section-icon">📚</span> 历史归档
+        </h2>
+      </div>
+      <div id="archiveContainer">
+        <!-- 由 app.js 渲染 -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>家电行业日报 · 数据来源：中国家电网 / 万维家电网 / 品牌官网</p>
+    <p class="footer-note">本页仅供选题决策参考，评分与选题角度为辅助建议</p>
+  </footer>
+
+  <!-- 数据与脚本：data.js 必须在 app.js 之前 -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
