@@ -68,6 +68,26 @@
       ? `<span class="inter-badge comments">💬${commentCount}</span>`
       : "";
 
+    // 发布日期徽章
+    const pubDate = item.douyin_pub_date || item.pub_date;
+    const pubDateHTML = pubDate
+      ? `<span class="pub-date">📅 ${formatPubDate(pubDate)}</span>`
+      : "";
+
+    // 互动率（评论/总互动）
+    let ctrHTML = "";
+    if (inter && commentCount && inter > 0) {
+      const ctr = ((commentCount / inter) * 100).toFixed(1);
+      const ctrClass = ctr >= 10 ? "ctr-high" : ctr >= 5 ? "ctr-mid" : "";
+      ctrHTML = `<span class="ctr-badge ${ctrClass}">互动率 ${ctr}%</span>`;
+    }
+
+    // 双维度评分（内容分 + 热度分）
+    const heatScore = item.heat_score;
+    const heatHTML = heatScore !== undefined && heatScore > 0
+      ? `<span class="heat-badge" title="内容热度分">🔥${heatScore}</span>`
+      : "";
+
     const angleHTML = item.angle
       ? `<div class="angle"><span class="angle-icon">💡</span><span>${escapeHTML(item.angle)}</span></div>`
       : "";
@@ -76,27 +96,72 @@
       ? `<div class="title-suggest">📌 建议标题：${escapeHTML(item.title_suggest)}</div>`
       : "";
 
+    const titleParts = cleanTitle(item.title);
+    const tagsHTML = titleParts.tags.length
+      ? `<div class="card-tags">${titleParts.tags.map(t => `<span class="tag-chip">#${escapeHTML(t)}</span>`).join("")}</div>`
+      : "";
+
     return `
       <div class="card ${large ? "card-lg" : ""} ${isGold ? "gold" : ""}">
         <h3 class="card-title">
           ${item.url
-            ? `<a href="${escapeAttr(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.title)}</a>`
-            : escapeHTML(item.title)}
+            ? `<a href="${escapeAttr(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(titleParts.clean || item.title)}</a>`
+            : escapeHTML(titleParts.clean || item.title)}
         </h3>
         <div class="card-meta">
           ${catTagHTML(item.category)}
           ${tier ? `<span class="tier-badge tier-${tier}">${tierLabel(tier)}</span>` : ""}
           <span class="source-tag">📡 ${escapeHTML(item.source || "未知来源")}</span>
+          ${pubDateHTML}
           ${interHTML}
           ${commentHTML}
+          ${ctrHTML}
+          ${heatHTML}
           <span class="score">
             <span class="stars">${stars}</span>
             <span class="score-num">${item.score.toFixed(1)}</span>
           </span>
         </div>
+        ${tagsHTML}
         ${angleHTML}
         ${titleSuggestHTML}
       </div>`;
+  }
+
+  /** 把日期字符串 (2026-07-02) 转成 "今天/昨天/N天前" 友好格式 */
+  function formatPubDate(dateStr) {
+    if (!dateStr) return "";
+    const m = String(dateStr).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!m) return dateStr;
+    const d = new Date(`${m[1]}-${m[2]}-${m[3]}`);
+    const today = new Date();
+    const diff = Math.floor((today - d) / (1000 * 60 * 60 * 24));
+    if (diff === 0) return "今天";
+    if (diff === 1) return "昨天";
+    if (diff < 7) return `${diff}天前`;
+    if (diff < 30) return `${Math.floor(diff / 7)}周前`;
+    return `${Math.floor(diff / 30)}月前`;
+  }
+
+  /** 清洗标题中的 #hashtag（抖音风格），提取为标签数组 */
+  function cleanTitle(title) {
+    if (!title) return { clean: "", tags: [] };
+    const tags = [];
+    const cleaned = title.replace(/#([^#\s]+)/g, (m, tag) => {
+      const t = tag.replace(/[\s#]+/g, "").trim();
+      if (t && t.length > 1 && !/^[0-9]+$/.test(t) && t.length < 20) {
+        tags.push(t);
+      }
+      return "";
+    }).replace(/\s+/g, " ").trim();
+    // 去重保留顺序
+    const seen = new Set();
+    const uniqTags = tags.filter(t => {
+      if (seen.has(t)) return false;
+      seen.add(t);
+      return true;
+    });
+    return { clean: cleaned, tags: uniqTags.slice(0, 6) };
   }
 
   function tierLabel(tier) {
@@ -121,15 +186,40 @@
       return;
     }
 
+    const diffLabel = (d) => {
+      const m = { low: "简单", medium: "中等", high: "深度" };
+      const c = { low: "#22c55e", medium: "#facc15", high: "#ef4444" };
+      const v = m[d] || d || "中等";
+      const color = c[d] || "#facc15";
+      return `<span class="diff-badge" style="--c:${color}">⏱ ${v}</span>`;
+    };
+
     const cards = ideas.map((idea, i) => {
-      const title = idea.title || "";
+      // 兼容旧版（单 title）和新版（title_a/title_b）
+      const titleA = idea.title_a || idea.title || "";
+      const titleB = idea.title_b || "";
       const cat = idea.category || "综合";
       const angle = idea.angle || "";
       const reason = idea.reason || "";
+      const diff = idea.diff || "";
+      const toutiaoTip = idea.toutiao_tip || "";
       const refs = idea.refs || [];
+      const difficulty = idea.difficulty || "medium";
 
       const refsHTML = refs.length
         ? `<div class="idea-refs">📎 参考素材：第 ${refs.join("、")} 条</div>`
+        : "";
+
+      const titleBHTML = titleB
+        ? `<div class="idea-title-b">📋 B 方案：${escapeHTML(titleB)}</div>`
+        : "";
+
+      const diffHTML = diff
+        ? `<div class="idea-diff">💡 差异化：${escapeHTML(diff)}</div>`
+        : "";
+
+      const toutiaoHTML = toutiaoTip
+        ? `<div class="idea-toutiao">📱 头条适配：${escapeHTML(toutiaoTip)}</div>`
         : "";
 
       return `
@@ -137,10 +227,14 @@
           <div class="idea-header">
             <span class="idea-num">${i + 1}</span>
             <span class="cat-tag" style="--cat:var(--cat-${cat});">${cat}</span>
+            ${diffLabel(difficulty)}
           </div>
-          <h3 class="idea-title">${escapeHTML(title)}</h3>
+          <h3 class="idea-title">${escapeHTML(titleA)}</h3>
+          ${titleBHTML}
           ${angle ? `<div class="idea-angle"><span class="idea-label">📝 写法</span>${escapeHTML(angle)}</div>` : ""}
           ${reason ? `<div class="idea-reason"><span class="idea-label">🔥 为什么能火</span>${escapeHTML(reason)}</div>` : ""}
+          ${diffHTML}
+          ${toutiaoHTML}
           ${refsHTML}
         </div>`;
     }).join("");

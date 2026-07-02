@@ -1,38 +1,40 @@
-/* 家电行业日报数据 · 生成于 2026-07-02 09:02 */
+/* 家电行业日报数据 · 生成于 2026-07-02 10:31 */
 const TODAY_DATA = {
   "date": "2026-07-02",
-  "run_time": "09:02",
+  "run_time": "10:31",
   "items": [
     {
-      "title": "空调怎么选不踩坑 ❗ 线上线下一样吗线上对应线下什么型号，今天一起唠一唠#空调 #空调怎么选 #家电 #装修 #避坑指南",
-      "url": "https://www.douyin.com/video/7654136809366031679",
-      "source": "抖音@乐白优选家电",
+      "title": "拆完挂机拆柜机，小米强劲风Pro柜机拆解，真让人想不到#小米空调 #小米强劲风性能旗舰#小米强劲风Pro",
+      "url": "https://www.douyin.com/video/7642555475220957115",
+      "source": "抖音@家电大兵",
       "tier": "H3",
       "weight": 85,
       "category": "空调",
-      "angle": "空调选购攻略（高收藏潜力）",
-      "douyin_interactions": 33832,
-      "douyin_comments": 276,
-      "douyin_pub_date": "2026-06-24",
-      "zpid": "7654136809366031679",
-      "comment_status": "抓取中",
-      "score": 9.0,
+      "angle": "空调行业动态+选购参考",
+      "douyin_interactions": 28973,
+      "douyin_comments": 4202,
+      "douyin_pub_date": "2026-05-22",
+      "zpid": "7642555475220957115",
+      "comment_status": "未抓取",
+      "heat_score": 6,
+      "score": 10.0,
       "title_suggest": ""
     },
     {
-      "title": "净水器怎么选不踩坑 ❗ 听懂导购潜台词生活小tips：家里喝桶装水的铁子，要定期清洗下软管和饮水机，那玩意老脏了#净水器 #净水器怎么选 #家电 #装修 #避坑",
-      "url": "https://www.douyin.com/video/7652302085723016499",
-      "source": "抖音@乐白优选家电",
+      "title": "全铜？33.5kg外机？拆解小米强劲风pro#小米空调#小米强劲风空调#小米空调换新挑战#小米强劲风性能王空调",
+      "url": "https://www.douyin.com/video/7629594157720620666",
+      "source": "抖音@家电大兵",
       "tier": "H3",
       "weight": 85,
-      "category": "小家电",
-      "angle": "小家电选购攻略（高收藏潜力）",
-      "douyin_interactions": 21126,
-      "douyin_comments": 120,
-      "douyin_pub_date": "2026-06-17",
-      "zpid": "7652302085723016499",
+      "category": "空调",
+      "angle": "空调行业动态+选购参考",
+      "douyin_interactions": 82199,
+      "douyin_comments": 11000,
+      "douyin_pub_date": "2026-04-17",
+      "zpid": "7629594157720620666",
       "comment_status": "未抓取",
-      "score": 9.0,
+      "heat_score": 8,
+      "score": 10.0,
       "title_suggest": ""
     },
     {
@@ -48,7 +50,8 @@ const TODAY_DATA = {
       "douyin_pub_date": "2026-05-01",
       "zpid": "7634487735406923008",
       "comment_status": "抓取中",
-      "score": 9.0,
+      "heat_score": 9,
+      "score": 10.0,
       "title_suggest": ""
     },
     {
@@ -64,88 +67,53 @@ const TODAY_DATA = {
       "douyin_pub_date": "2026-04-10",
       "zpid": "7627068377894325550",
       "comment_status": "已抓取",
-      "score": 9.0,
+      "heat_score": 9,
+      "score": 10.0,
       "title_suggest": ""
     },
     {
-      "title": "五款冰箱，满足保鲜自由",
-      "url": "https://jd.zol.com.cn/1208/12084493.html",
+      "title": "空调能效推荐榜2026 兼顾性能、设计感与长期使用成本",
+      "url": "https://jd.zol.com.cn/1208/12084675.html",
       "source": "中关村在线家电",
       "tier": "H2",
       "weight": 70,
-      "category": "冰箱",
-      "score": 8.5,
-      "angle": "冰箱对比评测",
-      "title_suggest": "五款冰箱保鲜能力对决，选购指南"
+      "category": "空调",
+      "score": 8.8,
+      "angle": "空调选购攻略（高收藏潜力）",
+      "title_suggest": ""
     },
     {
-      "title": "电视怎么选不踩坑？听懂导购潜台词#电视#电视怎么选#海信小墨E5SPro#家电#装修",
-      "url": "https://www.douyin.com/video/7653835407045528882",
-      "source": "抖音@乐白优选家电",
+      "title": "2026年买车到底买油车还是电车？一条视频帮助你选车！ #超哥直播回放 #买车 #油车 #新能源汽车",
+      "url": "https://www.douyin.com/video/7606388817116794166",
+      "source": "抖音@超哥超车",
       "tier": "H3",
-      "weight": 85,
-      "category": "电视",
-      "angle": "电视行业动态+选购参考",
-      "douyin_interactions": 17300,
-      "douyin_comments": 348,
-      "douyin_pub_date": "2026-06-22",
-      "zpid": "7653835407045528882",
-      "comment_status": "未抓取",
-      "score": 8.5,
+      "weight": 80,
+      "category": "综合家电",
+      "angle": "综合家电行业动态+选购参考",
+      "douyin_interactions": 577000,
+      "douyin_comments": 44000,
+      "douyin_pub_date": "2026-02-23",
+      "zpid": "7606388817116794166",
+      "comment_status": "抓取中",
+      "heat_score": 9,
+      "score": 8.8,
       "title_suggest": ""
     },
     {
-      "title": "科沃斯地宝mini评测：小户型家庭的全能清洁搭子",
-      "url": "https://jd.zol.com.cn/977/9773134.html",
-      "source": "中关村在线家电",
-      "tier": "H2",
-      "weight": 70,
-      "category": "综合家电",
-      "score": 8.0,
-      "angle": "产品评测",
-      "title_suggest": "科沃斯地宝mini评测：小户型家庭清洁好帮手"
-    },
-    {
-      "title": "九阳B693破壁机评测：静音细腻，全能清洁更省心",
-      "url": "https://jd.zol.com.cn/1207/12077755.html",
-      "source": "中关村在线家电",
-      "tier": "H2",
-      "weight": 70,
-      "category": "小家电",
-      "score": 8.0,
-      "angle": "产品评测",
-      "title_suggest": "九阳B693破壁机评测：静音细腻，清洁能力解析"
-    },
-    {
-      "title": "第16集：【买前必看】618空调选购攻略，1000-7000全价位推荐#空调 #空调选购 #空调推荐 #618 #618空调",
-      "url": "https://www.douyin.com/video/7642649124428320036",
-      "source": "抖音@Wilson学长",
+      "title": "空调怎么选不踩坑 ❗ 线上线下一样吗线上对应线下什么型号，今天一起唠一唠#空调 #空调怎么选 #家电 #装修 #避坑指南",
+      "url": "https://www.douyin.com/video/7654136809366031679",
+      "source": "抖音@乐白优选家电",
       "tier": "H3",
       "weight": 85,
       "category": "空调",
       "angle": "空调选购攻略（高收藏潜力）",
-      "douyin_interactions": 18476,
-      "douyin_comments": 1112,
-      "douyin_pub_date": "2026-05-22",
-      "zpid": "7642649124428320036",
+      "douyin_interactions": 33832,
+      "douyin_comments": 276,
+      "douyin_pub_date": "2026-06-24",
+      "zpid": "7654136809366031679",
       "comment_status": "抓取中",
-      "score": 7.5,
-      "title_suggest": ""
-    },
-    {
-      "title": "第9集：618燃气热水器超全攻略：参数、品牌、型号…不踩坑！#燃气热水器 #燃气热水器怎么选 #618 #燃气热水器选购 #热水器",
-      "url": "https://www.douyin.com/video/7639643966694001954",
-      "source": "抖音@Wilson学长",
-      "tier": "H3",
-      "weight": 80,
-      "category": "热水器",
-      "angle": "热水器选购攻略（高收藏潜力）",
-      "douyin_interactions": 19737,
-      "douyin_comments": 550,
-      "douyin_pub_date": "2026-05-14",
-      "zpid": "7639643966694001954",
-      "comment_status": "未抓取",
-      "score": 7.5,
+      "heat_score": 6,
+      "score": 8.5,
       "title_suggest": ""
     },
     {
@@ -161,8 +129,49 @@ const TODAY_DATA = {
       "douyin_pub_date": "2026-04-30",
       "zpid": "7634525768453819691",
       "comment_status": "抓取中",
-      "score": 7.3,
+      "heat_score": 9,
+      "score": 8.3,
       "title_suggest": ""
+    },
+    {
+      "title": "第5集：水电木瓦油速通攻略，装修人必看，30分钟帧帧干货！#青年创作者成长计划",
+      "url": "https://www.douyin.com/video/7602947362973027603",
+      "source": "抖音@叶大盾",
+      "tier": "H3",
+      "weight": 80,
+      "category": "综合家电",
+      "angle": "综合家电行业动态+选购参考",
+      "douyin_interactions": 397181,
+      "douyin_comments": 6704,
+      "douyin_pub_date": "2026-02-04",
+      "zpid": "7602947362973027603",
+      "comment_status": "未抓取",
+      "heat_score": 9,
+      "score": 8.3,
+      "title_suggest": ""
+    },
+    {
+      "title": "科沃斯地宝mini评测：小户型家庭的全能清洁搭子",
+      "url": "https://jd.zol.com.cn/977/9773134.html",
+      "source": "中关村在线家电",
+      "tier": "H2",
+      "weight": 70,
+      "category": "综合家电",
+      "score": 8.0,
+      "angle": "产品评测",
+      "title_suggest": "科沃斯地宝mini评测：小户型清洁助手"
+    },
+    {
+      "title": "世界杯战火已燃，中国家电的“全球赛”踢到了第几轮？",
+      "url": "https://news.cheaa.com/2026/0617/655793.shtml",
+      "source": "中国家电网",
+      "tier": "H2",
+      "weight": 100,
+      "category": "综合家电",
+      "pub_date": "2026-06-17",
+      "score": 7.5,
+      "angle": "全球市场分析",
+      "title_suggest": "中国家电在全球市场的最新表现"
     },
     {
       "title": "建议：买3大家电，抓住4点“选购定律”，绝非误导，都是经验总结",
@@ -187,6 +196,18 @@ const TODAY_DATA = {
       "title_suggest": ""
     },
     {
+      "title": "625亿元！第三批“国补”已下达！",
+      "url": "https://news.cheaa.com/2026/0626/656072.shtml",
+      "source": "中国家电网",
+      "tier": "H2",
+      "weight": 100,
+      "category": "综合家电",
+      "pub_date": "2026-06-26",
+      "score": 6.8,
+      "angle": "政策分析",
+      "title_suggest": "第三批‘国补’下达：家电产业新机遇"
+    },
+    {
       "title": "_导购_|_梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案_ _九月_",
       "url": "https://family.pconline.com.cn/2175/21757643.html \"梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案\"",
       "source": "太平洋家电",
@@ -196,17 +217,6 @@ const TODAY_DATA = {
       "score": 5.3,
       "angle": "小家电行业动态+选购参考",
       "title_suggest": ""
-    },
-    {
-      "title": "_导购_|_除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能_ _九月_",
-      "url": "https://family.pconline.com.cn/2177/21776625.html \"除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能\"",
-      "source": "太平洋家电",
-      "tier": "H2",
-      "weight": 70,
-      "category": "小家电",
-      "score": 4.0,
-      "angle": "导购指南",
-      "title_suggest": "梅雨季除湿机选购：德业P40变频旗舰评测"
     }
   ]
 };
@@ -398,52 +408,81 @@ const ARCHIVES = [
 const COMMENT_INSIGHTS = null;
 const TOPIC_IDEAS = [
   {
-    "title": "空调旺季必看：如何挑选空调不踩坑？线上线下型号对比！",
+    "title_a": "【空调旺季】小米强劲风Pro拆解揭秘：性能与性价比双赢？",
+    "title_b": "【性价比之选】小米强劲风Pro空调，拆解看性价比与性能",
     "category": "空调",
-    "angle": "深入分析空调选购要点，对比线上线下同款型号差异，提供实用选购技巧。",
-    "reason": "空调作为夏季必备家电，正值旺季，用户有大量购买需求，对比线上线下型号差异的话题具有争议性和讨论度，互动性强。",
+    "angle": "从拆解角度分析小米强劲风Pro空调的性能、性价比及安装细节，同时对比同类产品，为读者提供购买建议。",
+    "reason": "小米品牌影响力大，强劲风Pro在空调市场表现抢眼，拆解内容可吸引对性能和性价比敏感的消费者。",
+    "diff": "与其他仅提供性能参数的评测不同，本内容从拆解入手，结合安装细节，提供更全面的选购参考。",
+    "toutiao_tip": "增加对比表格，列出不同品牌空调的参数对比，方便读者快速了解。",
     "refs": [
-      1,
-      3,
-      9
-    ]
+      1
+    ],
+    "difficulty": "medium"
   },
   {
-    "title": "暑期家电换新攻略：空调、冰箱、洗衣机，抓住国补政策，换新更划算！",
-    "category": "综合",
-    "angle": "结合当前国补政策，推荐空调、冰箱、洗衣机等家电的选购指南，强调优惠信息，引导用户在暑期进行换新。",
-    "reason": "暑期换新需求旺盛，国补政策为用户提供优惠，此选题具有时效性和吸引力，互动性强。",
-    "refs": [
-      11,
-      12
-    ]
-  },
-  {
-    "title": "空调清洗大揭秘：夏天首次开机前，必看这些步骤！避免空调病！",
+    "title_a": "【避坑指南】空调清洗步骤全解析，夏季使用更健康",
+    "title_b": "【夏季必看】空调清洗攻略：如何正确清洗空调，避免夏季健康隐患？",
     "category": "空调",
-    "angle": "介绍空调清洗的重要性，提供夏季首次开机前的清洁步骤，避免空调病，实用性高。",
-    "reason": "夏季空调使用频繁，清洗话题具有实用性，用户需求量大，互动性强。",
+    "angle": "详细解析空调清洗步骤，强调清洗对夏季健康的重要性，提供实用操作指南。",
+    "reason": "夏季空调使用频率高，清洗需求大，内容针对性强，可吸引对此有需求的用户。",
+    "diff": "与其他空调清洗内容不同，本内容更侧重于健康角度，强调清洗对健康的益处。",
+    "toutiao_tip": "图文并茂，加入步骤图解，提高内容的可读性和实用性。",
     "refs": [
-      11
-    ]
+      8
+    ],
+    "difficulty": "medium"
   },
   {
-    "title": "冰箱保鲜大作战：五款冰箱测评，满足你的保鲜自由！",
-    "category": "冰箱",
-    "angle": "对比评测五款热门冰箱，从保鲜效果、容量、功能等方面进行对比，满足用户在空调旺季对冰箱的需求。",
-    "reason": "冰箱作为夏季必备家电，用户有大量购买需求，对比评测话题具有讨论度，互动性强。",
+    "title_a": "【国补政策】2026年空调“以旧换新”政策解读，换新更划算",
+    "title_b": "【政策解读】空调“以旧换新”补贴来袭，如何申请更划算？",
+    "category": "空调",
+    "angle": "解读2026年空调“以旧换新”政策，分析申请流程及注意事项，为消费者提供政策红利。",
+    "reason": "国补政策对消费者购买空调有直接影响，内容具有时效性和实用性。",
+    "diff": "与其他政策解读不同，本内容更侧重于消费者如何申请补贴，提供具体操作指南。",
+    "toutiao_tip": "增加政策流程图，清晰展示申请步骤。",
+    "refs": [
+      14
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "title_a": "【夏季空调选购】空调能效推荐榜2026：性能与节能兼备",
+    "title_b": "【节能空调】2026年空调能效推荐，节能又环保",
+    "category": "空调",
+    "angle": "推荐2026年空调能效推荐榜，从性能和节能角度分析，为消费者提供选购建议。",
+    "reason": "节能空调越来越受到消费者关注，内容针对性强，可吸引对节能有需求的用户。",
+    "diff": "与其他空调选购内容不同，本内容更侧重于节能环保，推荐具有高能效比的空调。",
+    "toutiao_tip": "增加对比表格，列出不同能效空调的参数对比。",
     "refs": [
       5
-    ]
+    ],
+    "difficulty": "medium"
   },
   {
-    "title": "空调+除湿机=完美夏季！如何搭配使用，告别潮湿闷热？",
+    "title_a": "【安装避坑】空调安装这些坑一定要知道，搞懂师傅潜台词",
+    "title_b": "【安装攻略】空调安装避坑指南，避免装修陷阱",
     "category": "空调",
-    "angle": "介绍空调和除湿机的搭配使用方法，解决夏季潮湿闷热问题，实用性高。",
-    "reason": "夏季潮湿闷热问题困扰用户，此选题具有实用性，用户需求量大，互动性强。",
+    "angle": "分析空调安装过程中常见的陷阱和问题，提供避坑指南，帮助消费者避免装修纠纷。",
+    "reason": "空调安装是消费者关注的重要环节，内容具有实用性和针对性。",
+    "diff": "与其他空调安装内容不同，本内容更侧重于避坑指南，帮助消费者避免装修纠纷。",
+    "toutiao_tip": "图文并茂，加入安装流程图，提高内容的可读性和实用性。",
     "refs": [
-      14,
-      15
-    ]
+      3
+    ],
+    "difficulty": "medium"
+  },
+  {
+    "title_a": "【选购定律】建议：买空调，抓住4点“选购定律”，绝非误导",
+    "title_b": "【选购技巧】空调选购，4大定律助你轻松选对空调",
+    "category": "空调",
+    "angle": "总结空调选购的四大定律，为消费者提供选购技巧，帮助消费者选到合适的空调。",
+    "reason": "空调选购具有一定的复杂性，内容具有实用性和指导性。",
+    "diff": "与其他空调选购内容不同，本内容更侧重于选购定律，提供一套完整的选购体系。",
+    "toutiao_tip": "增加对比表格，列出不同品牌空调的优缺点。",
+    "refs": [
+      12
+    ],
+    "difficulty": "medium"
   }
 ];
