@@ -1,24 +1,8 @@
-/* 家电行业日报数据 · 生成于 2026-07-02 02:18 */
+/* 家电行业日报数据 · 生成于 2026-07-02 09:02 */
 const TODAY_DATA = {
   "date": "2026-07-02",
-  "run_time": "02:18",
+  "run_time": "09:02",
   "items": [
-    {
-      "title": "第16集：【买前必看】618空调选购攻略，1000-7000全价位推荐#空调 #空调选购 #空调推荐 #618 #618空调",
-      "url": "https://www.douyin.com/video/7642649124428320036",
-      "source": "抖音@Wilson学长",
-      "tier": "H3",
-      "weight": 85,
-      "category": "空调",
-      "angle": "618空调选购攻略",
-      "douyin_interactions": 18476,
-      "douyin_comments": 1112,
-      "douyin_pub_date": "2026-05-22",
-      "zpid": "7642649124428320036",
-      "comment_status": "抓取中",
-      "score": 9.0,
-      "title_suggest": "618空调选购攻略：全价位空调推荐"
-    },
     {
       "title": "空调怎么选不踩坑 ❗ 线上线下一样吗线上对应线下什么型号，今天一起唠一唠#空调 #空调怎么选 #家电 #装修 #避坑指南",
       "url": "https://www.douyin.com/video/7654136809366031679",
@@ -26,14 +10,14 @@ const TODAY_DATA = {
       "tier": "H3",
       "weight": 85,
       "category": "空调",
-      "angle": "空调选购避坑指南",
-      "douyin_interactions": 28935,
-      "douyin_comments": 252,
+      "angle": "空调选购攻略（高收藏潜力）",
+      "douyin_interactions": 33832,
+      "douyin_comments": 276,
       "douyin_pub_date": "2026-06-24",
       "zpid": "7654136809366031679",
       "comment_status": "抓取中",
       "score": 9.0,
-      "title_suggest": "空调选购避坑指南：线上线下选购差异"
+      "title_suggest": ""
     },
     {
       "title": "净水器怎么选不踩坑 ❗ 听懂导购潜台词生活小tips：家里喝桶装水的铁子，要定期清洗下软管和饮水机，那玩意老脏了#净水器 #净水器怎么选 #家电 #装修 #避坑",
@@ -42,27 +26,11 @@ const TODAY_DATA = {
       "tier": "H3",
       "weight": 85,
       "category": "小家电",
-      "angle": "净水器选购避坑指南",
+      "angle": "小家电选购攻略（高收藏潜力）",
       "douyin_interactions": 21126,
       "douyin_comments": 120,
       "douyin_pub_date": "2026-06-17",
       "zpid": "7652302085723016499",
-      "comment_status": "未抓取",
-      "score": 9.0,
-      "title_suggest": "净水器选购避坑指南：导购潜台词解析"
-    },
-    {
-      "title": "第9集：618燃气热水器超全攻略：参数、品牌、型号…不踩坑！#燃气热水器 #燃气热水器怎么选 #618 #燃气热水器选购 #热水器",
-      "url": "https://www.douyin.com/video/7639643966694001954",
-      "source": "抖音@Wilson学长",
-      "tier": "H3",
-      "weight": 80,
-      "category": "热水器",
-      "angle": "热水器选购攻略（高收藏潜力）",
-      "douyin_interactions": 19737,
-      "douyin_comments": 550,
-      "douyin_pub_date": "2026-05-14",
-      "zpid": "7639643966694001954",
       "comment_status": "未抓取",
       "score": 9.0,
       "title_suggest": ""
@@ -100,39 +68,85 @@ const TODAY_DATA = {
       "title_suggest": ""
     },
     {
-      "title": "2026家用性价比高的洗衣机推荐:松下白月光搭搭、小天鹅小乌...",
-      "url": "https://www.toutiao.com/article/7656989834691330602/",
-      "source": "今日头条",
-      "tier": "H4",
-      "weight": 75,
-      "category": "洗衣机",
-      "score": 8.8,
-      "angle": "洗衣机选购攻略（高收藏潜力）",
+      "title": "五款冰箱，满足保鲜自由",
+      "url": "https://jd.zol.com.cn/1208/12084493.html",
+      "source": "中关村在线家电",
+      "tier": "H2",
+      "weight": 70,
+      "category": "冰箱",
+      "score": 8.5,
+      "angle": "冰箱对比评测",
+      "title_suggest": "五款冰箱保鲜能力对决，选购指南"
+    },
+    {
+      "title": "电视怎么选不踩坑？听懂导购潜台词#电视#电视怎么选#海信小墨E5SPro#家电#装修",
+      "url": "https://www.douyin.com/video/7653835407045528882",
+      "source": "抖音@乐白优选家电",
+      "tier": "H3",
+      "weight": 85,
+      "category": "电视",
+      "angle": "电视行业动态+选购参考",
+      "douyin_interactions": 17300,
+      "douyin_comments": 348,
+      "douyin_pub_date": "2026-06-22",
+      "zpid": "7653835407045528882",
+      "comment_status": "未抓取",
+      "score": 8.5,
       "title_suggest": ""
     },
     {
-      "title": "一季度洗碗机下滑7%，地方补贴与新国标能否成为“破局双翼...",
-      "url": "https://news.cheaa.com/2026/0616/655748.shtml",
-      "source": "中国家电网",
+      "title": "科沃斯地宝mini评测：小户型家庭的全能清洁搭子",
+      "url": "https://jd.zol.com.cn/977/9773134.html",
+      "source": "中关村在线家电",
       "tier": "H2",
-      "weight": 100,
-      "category": "厨电",
-      "pub_date": "2026-06-16",
-      "score": 8.5,
-      "angle": "分析洗碗机市场变化",
-      "title_suggest": "洗碗机市场下滑，地方补贴与新国标能否破局？"
+      "weight": 70,
+      "category": "综合家电",
+      "score": 8.0,
+      "angle": "产品评测",
+      "title_suggest": "科沃斯地宝mini评测：小户型家庭清洁好帮手"
     },
     {
-      "title": "625亿元！第三批“国补”已下达！",
-      "url": "https://news.cheaa.com/2026/0626/656072.shtml",
-      "source": "中国家电网",
+      "title": "九阳B693破壁机评测：静音细腻，全能清洁更省心",
+      "url": "https://jd.zol.com.cn/1207/12077755.html",
+      "source": "中关村在线家电",
       "tier": "H2",
-      "weight": 100,
-      "category": "综合家电",
-      "pub_date": "2026-06-26",
+      "weight": 70,
+      "category": "小家电",
       "score": 8.0,
-      "angle": "国补政策",
-      "title_suggest": "625亿元‘国补’下达对家电行业影响解析"
+      "angle": "产品评测",
+      "title_suggest": "九阳B693破壁机评测：静音细腻，清洁能力解析"
+    },
+    {
+      "title": "第16集：【买前必看】618空调选购攻略，1000-7000全价位推荐#空调 #空调选购 #空调推荐 #618 #618空调",
+      "url": "https://www.douyin.com/video/7642649124428320036",
+      "source": "抖音@Wilson学长",
+      "tier": "H3",
+      "weight": 85,
+      "category": "空调",
+      "angle": "空调选购攻略（高收藏潜力）",
+      "douyin_interactions": 18476,
+      "douyin_comments": 1112,
+      "douyin_pub_date": "2026-05-22",
+      "zpid": "7642649124428320036",
+      "comment_status": "抓取中",
+      "score": 7.5,
+      "title_suggest": ""
+    },
+    {
+      "title": "第9集：618燃气热水器超全攻略：参数、品牌、型号…不踩坑！#燃气热水器 #燃气热水器怎么选 #618 #燃气热水器选购 #热水器",
+      "url": "https://www.douyin.com/video/7639643966694001954",
+      "source": "抖音@Wilson学长",
+      "tier": "H3",
+      "weight": 80,
+      "category": "热水器",
+      "angle": "热水器选购攻略（高收藏潜力）",
+      "douyin_interactions": 19737,
+      "douyin_comments": 550,
+      "douyin_pub_date": "2026-05-14",
+      "zpid": "7639643966694001954",
+      "comment_status": "未抓取",
+      "score": 7.5,
+      "title_suggest": ""
     },
     {
       "title": "夏天第一次开空调前，这几个步骤千万不能忘！#空调#空调清洗#空调维修#空调滤芯",
@@ -162,15 +176,15 @@ const TODAY_DATA = {
       "title_suggest": ""
     },
     {
-      "title": "_导购_|_除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能_ _九月_",
-      "url": "https://family.pconline.com.cn/2177/21776625.html \"除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能\"",
-      "source": "太平洋家电",
-      "tier": "H2",
-      "weight": 70,
-      "category": "小家电",
-      "score": 5.5,
-      "angle": "梅雨季除湿机选购指南",
-      "title_suggest": "梅雨季除湿机选购攻略：避免踩坑的十大品牌推荐"
+      "title": "最新市场测评洗衣机哪个牌子好?2026家用洗衣机选购攻略",
+      "url": "https://www.toutiao.com/article/7656672684947800595/",
+      "source": "今日头条",
+      "tier": "H4",
+      "weight": 75,
+      "category": "洗衣机",
+      "score": 7.3,
+      "angle": "洗衣机选购攻略（高收藏潜力）",
+      "title_suggest": ""
     },
     {
       "title": "_导购_|_梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案_ _九月_",
@@ -179,31 +193,20 @@ const TODAY_DATA = {
       "tier": "H2",
       "weight": 70,
       "category": "小家电",
-      "score": 5.5,
-      "angle": "梅雨季除湿机选购指南",
-      "title_suggest": "梅雨季除湿机选购攻略：不踩坑的选购技巧"
+      "score": 5.3,
+      "angle": "小家电行业动态+选购参考",
+      "title_suggest": ""
     },
     {
-      "title": "北京盛世欣兴格力贸易有限公司",
-      "url": "https://www.gree.com/about/news.html",
-      "source": "格力",
-      "tier": "H1",
-      "weight": 90,
-      "category": "综合家电",
-      "score": 1.0,
-      "angle": "格力公司信息",
-      "title_suggest": "格力公司信息"
-    },
-    {
-      "title": "厦门盛世欣兴格力贸易有限公司",
-      "url": "http://www.gree.com/",
-      "source": "格力",
-      "tier": "H1",
-      "weight": 90,
-      "category": "综合家电",
-      "score": 1.0,
-      "angle": "格力公司信息",
-      "title_suggest": "格力公司信息"
+      "title": "_导购_|_除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能_ _九月_",
+      "url": "https://family.pconline.com.cn/2177/21776625.html \"除湿机十大品牌德业，2026梅雨季怎么选？这台P40把“变频旗舰”做到了全能\"",
+      "source": "太平洋家电",
+      "tier": "H2",
+      "weight": 70,
+      "category": "小家电",
+      "score": 4.0,
+      "angle": "导购指南",
+      "title_suggest": "梅雨季除湿机选购：德业P40变频旗舰评测"
     }
   ]
 };
@@ -395,50 +398,52 @@ const ARCHIVES = [
 const COMMENT_INSIGHTS = null;
 const TOPIC_IDEAS = [
   {
-    "title": "618空调选购必看：1000-7000全价位攻略，避开这些坑！",
+    "title": "空调旺季必看：如何挑选空调不踩坑？线上线下型号对比！",
     "category": "空调",
-    "angle": "详细分析618空调选购要点，包括不同价位、品牌、型号推荐，以及避坑指南",
-    "reason": "618购物节即将来临，空调作为热门家电，用户搜索需求量大，相关内容热度高。参考素材：1, 2",
+    "angle": "深入分析空调选购要点，对比线上线下同款型号差异，提供实用选购技巧。",
+    "reason": "空调作为夏季必备家电，正值旺季，用户有大量购买需求，对比线上线下型号差异的话题具有争议性和讨论度，互动性强。",
     "refs": [
       1,
-      2
+      3,
+      9
     ]
   },
   {
-    "title": "燃气热水器选购攻略：618超全参数解读，告别踩坑！",
-    "category": "热水器",
-    "angle": "针对618期间的燃气热水器，从参数、品牌、型号等方面进行详细解读，帮助用户避免选购误区",
-    "reason": "燃气热水器作为重要的家居电器，用户在618期间需求量大，相关内容热度高。参考素材：4",
+    "title": "暑期家电换新攻略：空调、冰箱、洗衣机，抓住国补政策，换新更划算！",
+    "category": "综合",
+    "angle": "结合当前国补政策，推荐空调、冰箱、洗衣机等家电的选购指南，强调优惠信息，引导用户在暑期进行换新。",
+    "reason": "暑期换新需求旺盛，国补政策为用户提供优惠，此选题具有时效性和吸引力，互动性强。",
     "refs": [
-      4
+      11,
+      12
     ]
   },
   {
-    "title": "6招教你轻松选购净水器：告别水质疑虑，喝上健康水！",
-    "category": "净水器",
-    "angle": "针对净水器选购，提供实用技巧和注意事项，帮助用户选择合适的净水器，保障家庭饮水健康",
-    "reason": "随着生活水平的提高，人们对水质安全越来越重视，净水器选购相关内容热度高。参考素材：3",
-    "refs": [
-      3
-    ]
-  },
-  {
-    "title": "梅雨季除湿机选购指南：德业P40变频旗舰，告别潮湿！",
-    "category": "小家电",
-    "angle": "针对梅雨季除湿机选购，从品牌、型号、功能等方面进行对比推荐，帮助用户选购合适的除湿机",
-    "reason": "梅雨季节即将来临，除湿机需求量大，相关内容热度高。参考素材：12, 13",
-    "refs": [
-      12,
-      13
-    ]
-  },
-  {
-    "title": "618家电选购定律：抓住这4点，避开选购误区！",
-    "category": "综合家电",
-    "angle": "总结出家电选购的4个定律，帮助用户在618期间选购到性价比高的家电产品",
-    "reason": "618购物节期间，家电选购指南内容热度高，此内容提供实用选购技巧，具有较高参考价值。参考素材：11",
+    "title": "空调清洗大揭秘：夏天首次开机前，必看这些步骤！避免空调病！",
+    "category": "空调",
+    "angle": "介绍空调清洗的重要性，提供夏季首次开机前的清洁步骤，避免空调病，实用性高。",
+    "reason": "夏季空调使用频繁，清洗话题具有实用性，用户需求量大，互动性强。",
     "refs": [
       11
+    ]
+  },
+  {
+    "title": "冰箱保鲜大作战：五款冰箱测评，满足你的保鲜自由！",
+    "category": "冰箱",
+    "angle": "对比评测五款热门冰箱，从保鲜效果、容量、功能等方面进行对比，满足用户在空调旺季对冰箱的需求。",
+    "reason": "冰箱作为夏季必备家电，用户有大量购买需求，对比评测话题具有讨论度，互动性强。",
+    "refs": [
+      5
+    ]
+  },
+  {
+    "title": "空调+除湿机=完美夏季！如何搭配使用，告别潮湿闷热？",
+    "category": "空调",
+    "angle": "介绍空调和除湿机的搭配使用方法，解决夏季潮湿闷热问题，实用性高。",
+    "reason": "夏季潮湿闷热问题困扰用户，此选题具有实用性，用户需求量大，互动性强。",
+    "refs": [
+      14,
+      15
     ]
   }
 ];
