@@ -1,8 +1,26 @@
-/* 家电行业日报数据 · 真实互动版 · 生成于 2026-07-03 17:10 */
+/* 家电行业日报数据 · 真实互动版 · 生成于 2026-07-04 00:28 */
 const TODAY_DATA = {
-  "date": "2026-07-03",
-  "run_time": "17:10 (增强版)",
+  "date": "2026-07-04",
+  "run_time": "00:28 (增强版)",
   "items": [
+    {
+      "title": "冰箱说法 #冰箱 #冰箱怎么选",
+      "url": "https://www.douyin.com/video/7612633314280612596",
+      "source": "抖音@家铭-家电优选",
+      "tier": "H3",
+      "weight": 80,
+      "category": "冰箱",
+      "angle": "热门话题",
+      "douyin_interactions": 115991,
+      "douyin_comments": 991,
+      "douyin_pub_date": "2026-03-03",
+      "zpid": "7612633314280612596",
+      "comment_status": "未抓取",
+      "heat_score": 9,
+      "score": 9.5,
+      "title_suggest": "冰箱选购指南：热门话题#冰箱 #冰箱怎么选",
+      "category_bonus": 1.5
+    },
     {
       "title": "硬气男人的家电冷知识：洗衣机的隐藏用法 男人在家就得硬气！ 一次#洗衣机 #洗衣机清洗 #洗衣机用法 #家电 #家庭地位",
       "url": "https://www.douyin.com/video/7604394862280052003",
@@ -10,7 +28,7 @@ const TODAY_DATA = {
       "tier": "H3",
       "weight": 85,
       "category": "洗衣机",
-      "angle": "家电隐藏用法揭秘",
+      "angle": "实用知识",
       "douyin_interactions": 1781303,
       "douyin_comments": 8303,
       "douyin_pub_date": "2026-02-08",
@@ -18,7 +36,42 @@ const TODAY_DATA = {
       "comment_status": "抓取中",
       "heat_score": 9,
       "score": 9.5,
-      "title_suggest": "揭秘！洗衣机的6个隐藏用法，男人在家也能硬气！"
+      "title_suggest": "洗衣机的隐藏用法：男人的硬气家电生活！"
+    },
+    {
+      "title": "油烟机怎么选？记住这8点！",
+      "url": "https://www.xiaohongshu.com/explore/67a3695c000000001703ab45",
+      "source": "小红书@马尼真能装啊（硬装中）",
+      "tier": "H5",
+      "weight": 70,
+      "category": "厨电",
+      "douyin_interactions": 100289,
+      "douyin_comments": 3528,
+      "douyin_liked": 21323,
+      "douyin_collected": 23970,
+      "heat_score": 9,
+      "score": 9.5,
+      "angle": "厨电行业动态+选购参考",
+      "title_suggest": "",
+      "category_bonus": 0.8
+    },
+    {
+      "title": "30款冰箱，3个注意点，618海尔/卡萨帝冰箱，应该如何选？#海尔冰箱 #海尔麦浪冰箱 #卡萨帝冰箱#海尔大海鲸冰箱#卡萨帝原石冰箱",
+      "url": "https://www.douyin.com/video/7643004022001126698",
+      "source": "抖音@Wilson学长",
+      "tier": "H3",
+      "weight": 85,
+      "category": "冰箱",
+      "angle": "促销活动",
+      "douyin_interactions": 11628,
+      "douyin_comments": 316,
+      "douyin_pub_date": "2026-05-23",
+      "zpid": "7643004022001126698",
+      "comment_status": "抓取中",
+      "heat_score": 6,
+      "score": 9.5,
+      "title_suggest": "冰箱选购指南：618家电促销，海尔/卡萨帝冰箱选购要点",
+      "category_bonus": 1.5
     },
     {
       "title": "冰箱怎么选不踩坑听懂导购潜台词，轻松拿捏 #冰箱 #冰箱怎么选 #买冰箱 #家电 #装修",
@@ -27,7 +80,7 @@ const TODAY_DATA = {
       "tier": "H3",
       "weight": 80,
       "category": "冰箱",
-      "angle": "家电选购技巧",
+      "angle": "选购攻略",
       "douyin_interactions": 448364,
       "douyin_comments": 1364,
       "douyin_pub_date": "2026-02-16",
@@ -35,42 +88,82 @@ const TODAY_DATA = {
       "comment_status": "抓取中",
       "heat_score": 9,
       "score": 9.5,
-      "title_suggest": "选冰箱不踩坑，导购的潜台词你懂了吗？",
+      "title_suggest": "冰箱选购指南：八买八不买，轻松选购技巧！",
       "category_bonus": 1.5
     },
     {
-      "title": "假如导购说真话，空调这么选不踩坑#空调 #空调怎么选 #家电 #装修 #避坑指南",
-      "url": "https://www.douyin.com/video/7647131913622129961",
-      "source": "抖音@老张讲厨电",
-      "tier": "H1",
-      "weight": 90,
-      "category": "空调",
-      "douyin_interactions": 280804,
-      "douyin_comments": 1617,
-      "douyin_pub_date": "2026-06-03",
-      "zpid": "7647131913622129961",
-      "comment_status": "未抓取",
-      "heat_score": 9,
-      "score": 9.0,
-      "angle": "选购避坑",
-      "title_suggest": "空调选购避坑指南：导购真话大揭秘"
+      "title": "只买对不买贵！原来这样选冰箱才不会翻车",
+      "url": "https://www.xiaohongshu.com/explore/68e8243d00000000040115d0",
+      "source": "小红书@老杨测评官",
+      "tier": "H5",
+      "weight": 70,
+      "category": "冰箱",
+      "douyin_interactions": 54196,
+      "douyin_comments": 544,
+      "douyin_liked": 16751,
+      "douyin_collected": 12119,
+      "heat_score": 8,
+      "score": 9.5,
+      "angle": "冰箱选购",
+      "title_suggest": "冰箱选购不翻车指南：只买对不买贵",
+      "category_bonus": 1.5
     },
     {
-      "title": "家电安装这些坑一定要知道  搞懂安装师傅潜台词 #家电 #家电安装 #装修 #避坑指南 #装修细节",
-      "url": "https://www.douyin.com/video/7634487735406923008",
-      "source": "抖音@乐白优选家电",
-      "tier": "H3",
-      "weight": 80,
-      "category": "综合家电",
-      "angle": "安装避坑",
-      "douyin_interactions": 457422,
-      "douyin_comments": 1192,
-      "douyin_pub_date": "2026-05-01",
-      "zpid": "7634487735406923008",
-      "comment_status": "抓取中",
-      "heat_score": 9,
-      "score": 9.0,
-      "title_suggest": "家电安装注意事项：避免常见陷阱"
+      "title": "冰箱选购指南，8买8不买！",
+      "url": "https://www.xiaohongshu.com/explore/69d8bad100000000210049dd",
+      "source": "小红书@家电老炮",
+      "tier": "H5",
+      "weight": 70,
+      "category": "冰箱",
+      "douyin_interactions": 7819,
+      "douyin_comments": 50,
+      "douyin_liked": 2001,
+      "douyin_collected": 1906,
+      "heat_score": 5,
+      "score": 9.5,
+      "angle": "选购攻略",
+      "title_suggest": "油烟机选购指南：八大要点，选购不踩坑！",
+      "category_bonus": 1.5
+    },
+    {
+      "title": "北京消协测试14款洗碗机:洗净除菌都过关，保管功能拉开体验差距",
+      "url": "https://toutiao.com/group/7536507344210051611/",
+      "source": "今日头条@小渊评宅",
+      "tier": "H4",
+      "weight": 75,
+      "category": "厨电",
+      "douyin_interactions": 105,
+      "douyin_comments": 269,
+      "douyin_repin": 114,
+      "douyin_shares": 10,
+      "toutiao_impression": 15806,
+      "toutiao_is_hot": false,
+      "toutiao_engagement": 1936,
+      "heat_score": 2,
+      "score": 9.3,
+      "angle": "洗碗机评测",
+      "title_suggest": "14款洗碗机测评：洗净除菌功能评测及保管功能体验",
+      "category_bonus": 0.8
+    },
+    {
+      "title": "集成灶长文选购攻略，8000字让你秒变行家，一体集成灶怎么买？",
+      "url": "https://toutiao.com/group/7143810330773406248/",
+      "source": "今日头条@什么值得买",
+      "tier": "H4",
+      "weight": 75,
+      "category": "厨电",
+      "douyin_interactions": 45,
+      "douyin_comments": 3,
+      "douyin_repin": 203,
+      "douyin_shares": 0,
+      "toutiao_impression": 2955,
+      "toutiao_is_hot": false,
+      "toutiao_engagement": 872,
+      "heat_score": 1,
+      "score": 9.3,
+      "angle": "选购攻略",
+      "title_suggest": "8000字集成灶选购攻略：如何买到合适的集成灶？",
+      "category_bonus": 0.8
     },
     {
       "title": "全铜？33.5kg外机？拆解小米强劲风pro#小米空调#小米强劲风空调#小米空调换新挑战#小米强劲风性能王空调",
@@ -79,7 +172,7 @@ const TODAY_DATA = {
       "tier": "H3",
       "weight": 85,
       "category": "空调",
-      "angle": "拆解评测",
+      "angle": "小米空调拆解",
       "douyin_interactions": 82199,
       "douyin_comments": 11000,
       "douyin_pub_date": "2026-04-17",
@@ -87,76 +180,44 @@ const TODAY_DATA = {
       "comment_status": "未抓取",
       "heat_score": 8,
       "score": 9.0,
-      "title_suggest": "小米空调深度拆解：揭秘全铜外机"
+      "title_suggest": "深度拆解小米强劲风Pro：全铜外机性能揭秘"
     },
     {
-      "title": "冰箱说法 #冰箱 #冰箱怎么选",
-      "url": "https://www.douyin.com/video/7612633314280612596",
-      "source": "抖音@家铭-家电优选",
-      "tier": "H3",
-      "weight": 80,
-      "category": "冰箱",
-      "angle": "品牌评测",
-      "douyin_interactions": 115991,
-      "douyin_comments": 991,
-      "douyin_pub_date": "2026-03-03",
-      "zpid": "7612633314280612596",
-      "comment_status": "未抓取",
-      "heat_score": 9,
+      "title": "2026年家用投影仪买不买?实测三个月告诉你:它是神器也是大坑!",
+      "url": "https://toutiao.com/group/7657681177557451299/",
+      "source": "今日头条@杂家",
+      "tier": "H4",
+      "weight": 75,
+      "category": "电视",
+      "douyin_interactions": 7,
+      "douyin_comments": 3,
+      "douyin_repin": 9,
+      "douyin_shares": 0,
+      "toutiao_impression": 391,
+      "toutiao_is_hot": false,
+      "toutiao_engagement": 58,
+      "heat_score": 1,
       "score": 9.0,
-      "title_suggest": "冰箱怎么选？实测万和吸油烟机",
+      "angle": "实测对比",
+      "title_suggest": "投影仪选购指南：神器还是大坑？实测看真章！",
       "category_bonus": 1.5
     },
     {
-      "title": "搞懂洗衣机正确用法  解锁7个洗衣机隐藏用法 #洗衣机 #洗衣机用法 #洗衣机清洗 #家电 #避坑指南",
-      "url": "https://www.douyin.com/video/7627068377894325550",
+      "title": "家电安装这些坑一定要知道  搞懂安装师傅潜台词 #家电 #家电安装 #装修 #避坑指南 #装修细节",
+      "url": "https://www.douyin.com/video/7634487735406923008",
       "source": "抖音@乐白优选家电",
       "tier": "H3",
       "weight": 80,
-      "category": "洗衣机",
-      "angle": "使用技巧",
-      "douyin_interactions": 331408,
-      "douyin_comments": 3408,
-      "douyin_pub_date": "2026-04-10",
-      "zpid": "7627068377894325550",
-      "comment_status": "已抓取",
-      "heat_score": 9,
-      "score": 9.0,
-      "title_suggest": "洗衣机使用技巧：7个隐藏用法揭秘"
-    },
-    {
-      "title": "拆完挂机拆柜机，小米强劲风Pro柜机拆解，真让人想不到#小米空调 #小米强劲风性能旗舰#小米强劲风Pro",
-      "url": "https://www.douyin.com/video/7642555475220957115",
-      "source": "抖音@家电大兵",
-      "tier": "H3",
-      "weight": 85,
-      "category": "空调",
-      "angle": "拆解评测",
-      "douyin_interactions": 28973,
-      "douyin_comments": 4202,
-      "douyin_pub_date": "2026-05-22",
-      "zpid": "7642555475220957115",
-      "comment_status": "未抓取",
-      "heat_score": 6,
-      "score": 8.5,
-      "title_suggest": "小米强劲风Pro柜机拆解：性能解析"
-    },
-    {
-      "title": "夏天第一次开空调前，这几个步骤千万不能忘！#空调#空调清洗#空调维修#空调滤芯",
-      "url": "https://www.douyin.com/video/7634525768453819691",
-      "source": "抖音@哏工侃智能",
-      "tier": "H3",
-      "weight": 80,
-      "category": "空调",
-      "angle": "空调使用技巧",
-      "douyin_interactions": 536485,
-      "douyin_comments": 3373,
-      "douyin_pub_date": "2026-04-30",
-      "zpid": "7634525768453819691",
+      "category": "综合家电",
+      "angle": "家电安装",
+      "douyin_interactions": 457422,
+      "douyin_comments": 1192,
+      "douyin_pub_date": "2026-05-01",
+      "zpid": "7634487735406923008",
       "comment_status": "抓取中",
       "heat_score": 9,
-      "score": 8.5,
-      "title_suggest": "夏天空调首次开启，这5步不能少！"
+      "score": 9.0,
+      "title_suggest": "家电安装避坑指南：搞懂安装师傅的潜台词"
     },
     {
       "title": "夏天开空调像打仗？换了这台格力，家里终于不吵了！#格力空调#格力云之舒柜机#立式空调#空调推荐#心动是家也是你",
@@ -171,195 +232,137 @@ const TODAY_DATA = {
       "zpid": "7648940487919222969",
       "comment_status": "未抓取",
       "heat_score": 8,
-      "score": 7.5,
-      "angle": "品牌评测",
-      "title_suggest": "格力空调实测：噪音不再，夏日清凉升级"
+      "score": 8.5,
+      "angle": "空调使用体验",
+      "title_suggest": "格力云之舒柜机，夏日空调噪音烦恼终结者"
     },
     {
-      "title": "2026最新电视机选购指南：75寸/85寸全尺寸覆盖，RGB电视品质之选",
-      "url": "https://toutiao.com/group/7657472898701820425/",
-      "source": "今日头条@中原融媒",
-      "tier": "H4",
-      "weight": 75,
-      "category": "电视",
-      "douyin_interactions": 0,
-      "douyin_comments": 2,
-      "douyin_repin": 0,
-      "douyin_shares": 0,
-      "toutiao_impression": 17,
-      "toutiao_is_hot": false,
-      "toutiao_engagement": 10,
-      "score": 7.45,
-      "angle": "电视选购指南",
-      "title_suggest": "75寸/85寸电视全尺寸覆盖，RGB电视品质之选！",
-      "category_bonus": 0.44999999999999996
-    },
-    {
-      "title": "75 英寸电视成客厅标配!2026年选购避坑指南，这6款口碑公认靠谱",
-      "url": "https://toutiao.com/group/7657840164118528522/",
-      "source": "今日头条@生活科技小壁虎",
-      "tier": "H4",
-      "weight": 75,
-      "category": "电视",
-      "douyin_interactions": 0,
-      "douyin_comments": 1,
-      "douyin_repin": 1,
-      "douyin_shares": 0,
-      "toutiao_impression": 149,
-      "toutiao_is_hot": false,
-      "toutiao_engagement": 9,
-      "score": 7.45,
-      "angle": "电视选购避坑",
-      "title_suggest": "75寸电视成标配！2026年选购避坑指南！",
-      "category_bonus": 0.44999999999999996
-    },
-    {
-      "title": "“叫好不叫座”的集成灶:3种尴尬不解决，除烟率再高也没用",
-      "url": "http://www.pconline.com.cn/3g/topnews/1469/14695245.html",
-      "source": "今日头条@PConline太平洋科技",
-      "tier": "H4",
-      "weight": 75,
-      "category": "厨电",
-      "douyin_interactions": 1,
-      "douyin_comments": 1,
-      "douyin_repin": 4,
-      "douyin_shares": 0,
-      "toutiao_impression": 399,
-      "toutiao_is_hot": false,
-      "toutiao_engagement": 22,
-      "heat_score": 1,
-      "score": 7.24,
-      "angle": "家电争议",
-      "title_suggest": "集成灶“叫好不叫座”，3种尴尬问题不解决！",
-      "category_bonus": 0.24
-    },
-    {
-      "title": "扫地机器人选购指南：为小白量身定制",
-      "url": "https://jd.zol.com.cn/931/9311467.html",
-      "source": "中关村在线家电",
-      "tier": "H2",
-      "weight": 70,
-      "category": "清洁电器",
-      "score": 4.5,
-      "angle": "选购指南",
-      "title_suggest": "扫地机器人选购攻略：小白入门",
-      "category_bonus": 1.5
-    },
-    {
-      "title": "九阳B693破壁机评测：静音细腻，全能清洁更省心",
-      "url": "https://jd.zol.com.cn/1207/12077755.html",
-      "source": "中关村在线家电",
+      "title": "_导购_|_梅雨季除湿机选购指南：十大品牌之首的德业，挑对全家不后悔_ _九月_",
+      "url": "https://family.pconline.com.cn/2175/21757583.html \"梅雨季除湿机选购指南：十大品牌之首的德业，挑对全家不后悔\"",
+      "source": "太平洋家电",
       "tier": "H2",
       "weight": 70,
       "category": "小家电",
-      "score": 3.8,
-      "angle": "产品评测",
-      "title_suggest": "九阳B693破壁机评测：性能解析",
+      "score": 7.3,
+      "angle": "除湿机选购",
+      "title_suggest": "梅雨季除湿机挑选攻略：德业品牌深度解析",
+      "category_bonus": 0.8
+    },
+    {
+      "title": "_导购_|_梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案_ _九月_",
+      "url": "https://family.pconline.com.cn/2175/21757643.html \"梅雨季除湿机怎么选不踩坑？除湿机十大品牌德业给你答案\"",
+      "source": "太平洋家电",
+      "tier": "H2",
+      "weight": 70,
+      "category": "小家电",
+      "score": 7.3,
+      "angle": "除湿机选购",
+      "title_suggest": "梅雨季除湿机选购：德业品牌全解读",
       "category_bonus": 0.8
     }
   ],
   "ideas": [
     {
-      "title_a": "夏日空调安装指南：避免这些错误让清凉升级",
-      "title_b": "夏日安装空调必看：哪些安装错误会影响使用体验？",
+      "title_a": "夏季空调选购攻略：避开这些常见误区",
+      "title_b": "夏季空调怎么选？揭秘选购技巧和保养秘籍",
       "category": "空调",
-      "angle": "从安装前准备到安装过程中常见错误分析，最后提出提升使用体验的建议。",
-      "reason": "根据近期评论显示，关于空调安装问题的关注度上升，尤其在空调旺季，此类内容更受用户欢迎。",
-      "diff": "区别于一般安装指南，本指南从实际案例出发，指出具体安装错误及其影响。",
-      "toutiao_tip": "加入对比图，详细说明每个安装步骤及常见错误，增强文章的指导性。",
+      "angle": "从用户常见误区出发，介绍选购空调的正确方法，并给出保养建议。",
+      "reason": "根据相关数据，夏季空调选购类内容互动量高，用户关注度高。",
+      "diff": "避开传统选购误区，从用户实际需求出发，提供实用选购建议。",
+      "toutiao_tip": "增加对比图和安装流程图，提升内容易读性。",
+      "refs": [
+        1
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "title_a": "冰箱新选择：无霜技术大揭秘，告别传统冰箱烦恼",
+      "title_b": "如何选择一台适合自己的无霜冰箱？这几点不容忽视",
+      "category": "冰箱",
+      "angle": "分析无霜冰箱的优势，并给出选购建议。",
+      "reason": "夏季高温，无霜冰箱需求量大，相关内容互动量高。",
+      "diff": "深入分析无霜技术，与传统冰箱对比，突出无霜冰箱优势。",
+      "toutiao_tip": "添加对比表和选购要点，便于用户快速了解。",
       "refs": [
         2
       ],
       "difficulty": "medium"
     },
     {
-      "title_a": "节能与清凉并重，揭秘夏季空调最佳购买方案",
-      "title_b": "夏日选空调不迷路：节能又省电的秘密武器是它！",
-      "category": "空调",
-      "angle": "从节能环保的角度分析，为消费者提供空调购买指南。",
-      "reason": "夏季是空调购买旺季，相关搜索量激增，尤其在节能环保意识提高的今天。",
-      "diff": "突出节能环保的购买策略，与普通购买指南不同，更具引导性。",
-      "toutiao_tip": "列表形式展示购买建议，包括关键参数、节能功能对比。",
+      "title_a": "洗衣机夏季使用指南：这些细节不能忽视",
+      "title_b": "夏季洗衣机清洗技巧，告别细菌滋生",
+      "category": "洗衣机",
+      "angle": "针对夏季洗衣机使用特点，提供清洗和保养建议。",
+      "reason": "夏季衣物清洗需求增加，相关内容互动量高。",
+      "diff": "从实际使用角度出发，给出针对性的清洗和保养建议。",
+      "toutiao_tip": "增加操作步骤图和保养技巧，提升内容实用性。",
       "refs": [
         3
       ],
       "difficulty": "medium"
     },
     {
-      "title_a": "告别旧冰箱，看这些新品让你夏日的每一餐更健康",
-      "title_b": "夏季必备新冰箱，这3款让你冷藏食品更安全",
-      "category": "冰箱",
-      "angle": "从夏日食物安全和冰箱性能两方面推荐新款冰箱。",
-      "reason": "夏季高温，食物安全意识提升，同时，消费者更愿意尝试新款产品。",
-      "diff": "专注于冰箱对夏日食品安全的重要性，不同于常规冰箱选购。",
-      "toutiao_tip": "加FAQ环节，回答消费者常见问题，增强用户互动。",
-      "refs": [
-        1
-      ],
-      "difficulty": "medium"
-    },
-    {
-      "title_a": "洗完就是晒？不，夏季洗衣机应该这样晾晒",
-      "title_b": "夏日洗衣机的晾晒小贴士：别让洗衣过程功亏一篑",
-      "category": "洗衣机",
-      "angle": "提供夏日洗衣机洗涤后正确的晾晒方法。",
-      "reason": "夏日潮湿天气增加，如何晾晒衣物成为消费者关心的问题。",
-      "diff": "强调晾晒不当可能导致衣物损坏，区别于常规洗涤操作。",
-      "toutiao_tip": "加入步骤图解，指导读者操作。",
-      "refs": [
-        2
-      ],
-      "difficulty": "low"
-    },
-    {
-      "title_a": "暑期家电狂欢：电视选购全攻略",
-      "title_b": "如何选购一台适合自己的电视？暑期选购必看指南",
+      "title_a": "电视选购攻略：高清、智能、4K，你了解多少？",
+      "title_b": "电视怎么选？高清、智能、4K，教你分辨电视性能",
       "category": "电视",
-      "angle": "结合暑期购物热潮，给出电视选购建议。",
-      "reason": "暑期是电视销售旺季，用户对于如何选购电视有强烈需求。",
-      "diff": "关注不同用户群体对电视的不同需求，如观影、游戏等。",
-      "toutiao_tip": "提供对比表格，直观展示不同电视参数对比。",
+      "angle": "分析电视选购要点，如高清、智能、4K等。",
+      "reason": "电视作为家庭娱乐设备，选购内容互动量高。",
+      "diff": "从电视性能出发，给出具体选购建议。",
+      "toutiao_tip": "增加电视性能对比表和选购要点，便于用户快速了解。",
       "refs": [
-        1
+        4
       ],
       "difficulty": "medium"
     },
     {
-      "title_a": "夏日洗浴升级：热水器怎么选，这些技巧要知道",
-      "title_b": "选热水器别只看价格，夏日洗浴要关注这些要点",
+      "title_a": "热水器夏季使用注意事项：安全、节能、健康",
+      "title_b": "热水器夏季使用攻略：安全、节能、健康，你做到了吗？",
       "category": "热水器",
-      "angle": "分析夏日洗浴热水器的选购要点，避免用户选择错误。",
-      "reason": "随着人们对健康生活追求的升级，热水器需求量大增。",
-      "diff": "结合夏季生活特点，如游泳后冲澡、空调房间温度低等。",
-      "toutiao_tip": "列出关键指标和注意事项，形成可读性强的列表。",
+      "angle": "介绍热水器夏季使用注意事项，如安全、节能、健康等。",
+      "reason": "夏季使用热水器需求量大，相关内容互动量高。",
+      "diff": "从安全、节能、健康等方面出发，给出具体使用建议。",
+      "toutiao_tip": "增加使用注意事项图和使用技巧，提升内容实用性。",
       "refs": [
-        2
+        5
       ],
       "difficulty": "medium"
     },
     {
-      "title_a": "告别油烟，打造清新厨房：油烟机选购指南",
-      "title_b": "夏季油烟困扰大？教你选一台适合自己的油烟机",
-      "category": "油烟机/厨电",
-      "angle": "结合夏季油烟问题，为用户提供油烟机选购指南。",
-      "reason": "夏季做饭更加频繁，油烟机使用率增加。",
-      "diff": "聚焦油烟问题，强调选购时应关注除烟效果。",
-      "toutiao_tip": "使用图文对比，直观展示不同型号油烟机特点。",
+      "title_a": "油烟机选购攻略：高效、静音、易清洁，你选对了吗？",
+      "title_b": "如何选购一台适合自己的油烟机？这几点要注意",
+      "category": "油烟机",
+      "angle": "分析油烟机选购要点，如高效、静音、易清洁等。",
+      "reason": "夏季油烟机需求量大，相关内容互动量高。",
+      "diff": "从油烟机性能出发，给出具体选购建议。",
+      "toutiao_tip": "增加油烟机性能对比表和选购要点，便于用户快速了解。",
       "refs": [
-        1
+        6
       ],
       "difficulty": "medium"
     },
     {
-      "title_a": "暑期小家电推荐：提升夏日生活品质",
-      "title_b": "小家电怎么选？夏季必备小家电清单",
+      "title_a": "夏季家居清洁神器：吸尘器、扫地机器人推荐",
+      "title_b": "夏季家居清洁攻略：吸尘器、扫地机器人怎么选？",
       "category": "其他",
-      "angle": "推荐适合夏日的各类小家电，如空调扇、电风扇等。",
-      "reason": "暑期是小家电销售旺季，消费者在寻求改善夏日生活的解决方案。",
-      "diff": "从改善生活品质角度出发，而非仅从单一产品角度。",
-      "toutiao_tip": "使用产品图示，方便读者了解各款产品。",
+      "angle": "推荐夏季家居清洁神器，如吸尘器、扫地机器人。",
+      "reason": "夏季家居清洁需求量大，相关内容互动量高。",
+      "diff": "从家居清洁角度出发，推荐实用清洁工具。",
+      "toutiao_tip": "增加产品对比表和使用场景图，提升内容实用性。",
       "refs": [
-        2
+        7
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "title_a": "夏季饮水健康指南：净水器选购技巧和安全使用建议",
+      "title_b": "夏季饮水健康攻略：净水器怎么选？安全使用要注意什么？",
+      "category": "净水器",
+      "angle": "介绍净水器选购技巧和安全使用建议。",
+      "reason": "夏季饮水需求量大，相关内容互动量高。",
+      "diff": "从饮水健康角度出发，给出具体选购和使用建议。",
+      "toutiao_tip": "增加净水器性能对比表和使用技巧，提升内容实用性。",
+      "refs": [
+        8
       ],
       "difficulty": "medium"
     }
@@ -367,7 +370,7 @@ const TODAY_DATA = {
   "analysis": {
     "insights": [
       {
-        "finding": "空调品类累计 10 条内容，总互动 2,136,227",
+        "finding": "空调品类累计 12 条内容，总互动 2,278,585",
         "so_what": "7月正值空调旺季，用户购买决策需求最强，是流量最大的家电品类",
         "why": "夏季高温驱动空调选购需求，叠加以旧换新补贴政策，形成购买决策高峰",
         "now_what": "本周应优先产出 2-3 篇空调内容：①选购攻略（避坑向）②拆机对比（小米vs格力vs美的）③补贴政策解读",
@@ -375,7 +378,7 @@ const TODAY_DATA = {
         "impact": "high"
       },
       {
-        "finding": "拆机类内容 4 条，互动量普遍高于其他类型",
+        "finding": "拆机类内容 5 条，互动量普遍高于其他类型",
         "so_what": "拆机内容是互动量最高的内容类型，用户对\"真实拆解\"有强烈需求",
         "why": "拆机满足了用户的信任需求——眼见为实，比参数介绍更有说服力",
         "now_what": "找 1 款热门型号做拆机内容（小米强劲风Pro 或 格力云佳Pro），标题用\"拆了看\"句式",
@@ -383,7 +386,7 @@ const TODAY_DATA = {
         "impact": "high"
       },
       {
-        "finding": "小米品牌内容 4 条，总互动 222,344",
+        "finding": "小米品牌内容 5 条，总互动 304,543",
         "so_what": "小米家电是当前流量最高的品牌，用户对小米家电的\"真材实料\"最好奇",
         "why": "小米跨界家电自带话题性，用户想验证\"互联网品牌做家电靠不靠谱\"",
         "now_what": "产出\"小米空调拆机\"内容，或\"小米vs传统品牌\"对比内容",
@@ -401,39 +404,39 @@ const TODAY_DATA = {
     ],
     "category_analysis": {
       "厨电": {
-        "count": 5,
-        "avg_score": 8.5,
-        "total_interactions": 1
+        "count": 8,
+        "avg_score": 8.9,
+        "total_interactions": 100440
       },
       "综合家电": {
-        "count": 12,
-        "avg_score": 8.1,
-        "total_interactions": 2185516
+        "count": 13,
+        "avg_score": 8.2,
+        "total_interactions": 2642938
       },
       "空调": {
-        "count": 10,
+        "count": 12,
         "avg_score": 8.8,
-        "total_interactions": 2136227
+        "total_interactions": 2278585
       },
       "洗衣机": {
-        "count": 7,
+        "count": 8,
         "avg_score": 9.1,
-        "total_interactions": 3894014
+        "total_interactions": 5675317
       },
       "小家电": {
-        "count": 5,
-        "avg_score": 5.7,
+        "count": 7,
+        "avg_score": 6.2,
         "total_interactions": 0
       },
       "电视": {
-        "count": 3,
-        "avg_score": 8.1,
-        "total_interactions": 17300
+        "count": 4,
+        "avg_score": 8.3,
+        "total_interactions": 17307
       },
       "冰箱": {
-        "count": 2,
-        "avg_score": 9.2,
-        "total_interactions": 564355
+        "count": 7,
+        "avg_score": 9.4,
+        "total_interactions": 1202353
       },
       "清洁电器": {
         "count": 1,
@@ -448,38 +451,38 @@ const TODAY_DATA = {
         "total_interactions": 0
       },
       "品牌:格力": {
-        "items": 6,
-        "days": 3,
-        "total_interactions": 141300
+        "items": 7,
+        "days": 4,
+        "total_interactions": 201459
       },
       "话题:避坑": {
-        "items": 10,
-        "days": 3,
-        "total_interactions": 3679818
+        "items": 11,
+        "days": 4,
+        "total_interactions": 4137240
       },
       "话题:选购": {
-        "items": 8,
-        "days": 3,
-        "total_interactions": 0
+        "items": 11,
+        "days": 4,
+        "total_interactions": 7864
       },
       "话题:清洗": {
-        "items": 4,
-        "days": 2,
-        "total_interactions": 4430499
+        "items": 5,
+        "days": 3,
+        "total_interactions": 6211802
       },
       "品牌:小米": {
-        "items": 4,
-        "days": 2,
-        "total_interactions": 222344
+        "items": 5,
+        "days": 3,
+        "total_interactions": 304543
       },
       "话题:安装": {
-        "items": 2,
-        "days": 2,
-        "total_interactions": 914844
+        "items": 3,
+        "days": 3,
+        "total_interactions": 1372266
       }
     },
-    "data_period": "2026-07-01 ~ 2026-07-03",
-    "total_items_analyzed": 45,
+    "data_period": "2026-07-01 ~ 2026-07-04",
+    "total_items_analyzed": 60,
     "daily_stats": [
       {
         "date": "2026-07-01",
@@ -495,6 +498,11 @@ const TODAY_DATA = {
         "date": "2026-07-03",
         "count": 15,
         "avg_score": 7.9
+      },
+      {
+        "date": "2026-07-04",
+        "count": 15,
+        "avg_score": 9.0
       }
     ]
   }
