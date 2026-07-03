@@ -1,519 +1,327 @@
-/* ============================================================
-   家电行业日报 — 渲染逻辑 v3
-   依赖：data.js 提供全局 TODAY_DATA 与 ARCHIVES
-   ============================================================ */
+/* ═══════════════════════════════════════════════
+   家电选题日报 v4.0 · 前端逻辑
+   ═══════════════════════════════════════════════ */
 
-(function () {
-  "use strict";
+const D = typeof TODAY_DATA !== 'undefined' ? TODAY_DATA : { top_picks: [], items: [], comment_insights: {}, title_formulas: [], timing_alerts: [], category_trend: [] };
 
-  // ---------- 配置 ----------
-  const CATEGORY_FILTERS = [
-    "全部", "空调", "冰箱", "洗衣机", "电视", "厨电",
-    "热水器", "小家电", "清洁电器", "智能家居", "综合家电"
-  ];
-  const HIGH_SCORE_THRESHOLD = 8;
-  const STAT_HIGH_SCORE_THRESHOLD = 7;
+// ── 工具函数 ──
+function fmt(n) {
+  if (n >= 10000) return (n / 10000).toFixed(1) + 'w';
+  if (n >= 1000) return (n / 1000).toFixed(1) + 'k';
+  return String(n);
+}
 
-  // ---------- 状态 ----------
-  let activeCategory = "全部";
-  let searchKeyword = "";
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
 
-  // ---------- SVG icon 库（无 emoji 依赖，跨平台一致） ----------
-  const ICON = {
-    zap:    '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
-    flame:  '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 17a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5 .5 2.5-2 4.05-2 4.05C12 6 11 3 8 3a8 8 0 0 0 0 8c.5 2 1 3 1 3"/></svg>',
-    star:   '<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linejoin="round"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
-    sparkle:'<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>',
-    bulb:   '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.5.4 1 1 1.3 1.6l.7 1.7h4l.7-1.7c.3-.6.8-1.2 1.3-1.6A7 7 0 0 0 12 2z"/></svg>',
-    pin:    '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8M9 2h6l-1 8h-4l-1-8zM7 14h10v3l-2 1v4H9v-4l-2-1v-3z"/></svg>',
-    phone:  '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>',
-    paper:  '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>',
-    chat:   '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
-    antenna:'<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>',
-    cal:    '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>',
-    target: '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
-    fire:   '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 17a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5 .5 2.5-2 4.05-2 4.05C12 6 11 3 8 3a8 8 0 0 0 0 8c.5 2 1 3 1 3"/></svg>',
-    light:  '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5C18 9.5 19 8 19 6a7 7 0 0 0-14 0c0 2 1 3.5 2.5 5.5 .8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg>',
-    sword:  '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5 3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4M19 21l2-2"/></svg>',
-    coin:   '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.37 18.09M7 6h1v4M16.71 13.88l.7.71-2.82 2.82"/></svg>',
-    link:   '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
-    box:    '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>',
-    inbox:  '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>',
-  };
+function timeAgo(dateStr) {
+  if (!dateStr) return '';
+  return dateStr;
+}
 
-  // ---------- 工具函数 ----------
-  function catTagHTML(category) {
-    return `<span class="cat-tag" style="--cat:var(--cat-${category});">${escapeHTML(category)}</span>`;
-  }
+// ── 渲染 ──
+function render() {
+  const app = document.getElementById('app');
+  
+  let html = '';
 
-  function scoreStars(score) {
-    const full = Math.floor(score);
-    const half = score - full >= 0.5 ? 1 : 0;
-    const empty = Math.max(0, 5 - full - half);
-    return ICON.star.repeat(full) + (half ? ICON.star : "") + ICON.star.repeat(empty);
-    // Note: 全部用实心星，下方通过颜色区分
-  }
-
-  function matchFilters(item) {
-    if (activeCategory !== "全部" && item.category !== activeCategory) return false;
-    if (searchKeyword) {
-      const kw = searchKeyword.toLowerCase();
-      const hay = [
-        item.title || "", item.source || "", item.angle || "", item.category || ""
-      ].join(" ").toLowerCase();
-      if (!hay.includes(kw)) return false;
-    }
-    return true;
-  }
-
-  function cardHTML(item, large) {
-    const isGold = item.score >= HIGH_SCORE_THRESHOLD;
-    const tier = (item.tier || "").toUpperCase();
-    const starsHTML = scoreStars(item.score);
-
-    const inter = item.douyin_interactions;
-    const interHTML = inter
-      ? `<span class="inter-badge">${ICON.flame}${formatK(inter)}</span>`
-      : "";
-    const commentCount = item.douyin_comments;
-    const commentHTML = commentCount
-      ? `<span class="inter-badge comments">${ICON.chat}${commentCount}</span>`
-      : "";
-
-    const pubDate = item.douyin_pub_date || item.pub_date;
-    const pubDateHTML = pubDate
-      ? `<span class="pub-date">${ICON.cal}${formatPubDate(pubDate)}</span>`
-      : "";
-
-    let ctrHTML = "";
-    if (inter && commentCount && inter > 0) {
-      const ctr = ((commentCount / inter) * 100).toFixed(1);
-      const ctrClass = ctr >= 10 ? "ctr-high" : ctr >= 5 ? "ctr-mid" : "";
-      ctrHTML = `<span class="ctr-badge ${ctrClass}">互动率 ${ctr}%</span>`;
-    }
-
-    const heatScore = item.heat_score;
-    const heatHTML = heatScore !== undefined && heatScore > 0
-      ? `<span class="heat-badge" title="内容热度分">${ICON.fire}${heatScore}</span>`
-      : "";
-
-    const angleHTML = item.angle
-      ? `<div class="angle">${ICON.bulb}<span>${escapeHTML(item.angle)}</span></div>`
-      : "";
-
-    const titleSuggestHTML = item.title_suggest
-      ? `<div class="title-suggest">${ICON.pin}<span>建议标题：${escapeHTML(item.title_suggest)}</span></div>`
-      : "";
-
-    const titleParts = cleanTitle(item.title);
-    const tagsHTML = titleParts.tags.length
-      ? `<div class="card-tags">${titleParts.tags.map(t => `<span class="tag-chip">#${escapeHTML(t)}</span>`).join("")}</div>`
-      : "";
-
-    return `
-      <div class="card ${large ? "card-lg" : ""} ${isGold ? "gold" : ""}">
-        <h3 class="card-title">
-          ${item.url
-            ? `<a href="${escapeAttr(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(titleParts.clean || item.title)} ${ICON.link}</a>`
-            : escapeHTML(titleParts.clean || item.title)}
-        </h3>
-        <div class="card-meta">
-          ${catTagHTML(item.category)}
-          ${tier ? `<span class="tier-badge tier-${tier}">${tierLabel(tier)}</span>` : ""}
-          <span class="source-tag">${ICON.antenna}${escapeHTML(item.source || "未知来源")}</span>
-          ${pubDateHTML}
-          ${interHTML}
-          ${commentHTML}
-          ${ctrHTML}
-          ${heatHTML}
-          <span class="score">
-            <span class="score-num">${item.score.toFixed(1)}</span>
-          </span>
+  // ── 顶部导航 ──
+  html += `
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="logo">
+          <span class="logo-icon">🎯</span>
+          <span>家电选题日报</span>
+          <span class="logo-sub">v4 · 编导版</span>
         </div>
-        ${tagsHTML}
-        ${angleHTML}
-        ${titleSuggestHTML}
-      </div>`;
-  }
+        <div class="topbar-date">
+          ${D.date || '----'}
+          <span class="fresh">30天内爆款</span>
+        </div>
+      </div>
+    </div>
+  `;
 
-  function formatPubDate(dateStr) {
-    if (!dateStr) return "";
-    const m = String(dateStr).match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    if (!m) return dateStr;
-    const d = new Date(`${m[1]}-${m[2]}-${m[3]}`);
-    const today = new Date();
-    const diff = Math.floor((today - d) / (1000 * 60 * 60 * 24));
-    if (diff === 0) return "今天";
-    if (diff === 1) return "昨天";
-    if (diff < 7) return `${diff}天前`;
-    if (diff < 30) return `${Math.floor(diff / 7)}周前`;
-    return `${Math.floor(diff / 30)}月前`;
-  }
+  // ── 第一屏：今日必拍 TOP 3 ──
+  html += `<div class="container"><div class="section" id="hero">`;
+  html += `<div class="section-label">🔥 TODAY'S TOP PICKS</div>`;
+  html += `<h2 class="section-title">今日必拍 TOP ${D.top_picks.length}</h2>`;
+  html += `<p class="section-desc">基于30天内爆款数据 + 真实互动量，自动推荐最有选题价值的内容方向</p>`;
+  html += `<div class="pick-grid">`;
 
-  function cleanTitle(title) {
-    if (!title) return { clean: "", tags: [] };
-    const tags = [];
-    const cleaned = title.replace(/#([^#\s]+)/g, (m, tag) => {
-      const t = tag.replace(/[\s#]+/g, "").trim();
-      if (t && t.length > 1 && !/^[0-9]+$/.test(t) && t.length < 20) {
-        tags.push(t);
-      }
-      return "";
-    }).replace(/\s+/g, " ").trim();
-    const seen = new Set();
-    const uniqTags = tags.filter(t => {
-      if (seen.has(t)) return false;
-      seen.add(t);
-      return true;
-    });
-    return { clean: cleaned, tags: uniqTags.slice(0, 6) };
-  }
-
-  function tierLabel(tier) {
-    const map = {"H1": "品牌", "H2": "媒体", "H3": "抖音", "H4": "头条"};
-    return map[tier] || tier;
-  }
-
-  function formatK(n) {
-    if (n >= 10000) return (n / 10000).toFixed(1) + "w";
-    if (n >= 1000) return (n / 1000).toFixed(1) + "k";
-    return n;
-  }
-
-  // ---------- 渲染：数据洞察分析 ----------
-  function renderAnalysis() {
-    const section = document.getElementById("analysisSection");
-    const analysis = TODAY_DATA.analysis;
-    if (!analysis || (!analysis.insights && !analysis.category_analysis)) {
-      section.style.display = "none";
-      return;
-    }
-
-    // 1. 渲染洞察卡片
-    const insightsBox = document.getElementById("insightsContainer");
-    const insights = analysis.insights || [];
-    if (insights.length > 0) {
-      const confidenceColors = { high: "#16a34a", medium: "#ca8a04", low: "#94a3b8" };
-      const impactColors = { high: "#dc2626", medium: "#ea580c", low: "#64748b" };
-      
-      insightsBox.innerHTML = insights.map((ins, i) => {
-        const confColor = confidenceColors[ins.confidence] || "#94a3b8";
-        const impColor = impactColors[ins.impact] || "#64748b";
-        return `
-          <div class="insight-analysis-card">
-            <div class="insight-header">
-              <span class="insight-num">${String(i + 1).padStart(2, "0")}</span>
-              <span class="insight-tag" style="--c:${confColor};">置信度 ${ins.confidence}</span>
-              <span class="insight-tag" style="--c:${impColor};">影响力 ${ins.impact}</span>
+  for (const pick of D.top_picks) {
+    const ref = pick.reference || {};
+    html += `
+      <div class="pick-card" data-rank="${pick.rank}">
+        <div class="pick-header">
+          <div class="pick-rank">${pick.rank}</div>
+          <div class="pick-main">
+            <div class="pick-topic">
+              ${esc(pick.topic)}
+              <span class="pick-cat-badge">${esc(pick.category)}</span>
             </div>
-            <div class="insight-finding">${ICON.target}<span>${escapeHTML(ins.finding)}</span></div>
-            <div class="insight-chain">
-              <div class="chain-row"><span class="chain-label" style="color:#533afd;">So What</span><span>${escapeHTML(ins.so_what)}</span></div>
-              <div class="chain-row"><span class="chain-label" style="color:#7c3aed;">Why</span><span>${escapeHTML(ins.why)}</span></div>
-              <div class="chain-row"><span class="chain-label" style="color:#dc2626;">Now What</span><span>${escapeHTML(ins.now_what)}</span></div>
+            <div class="pick-why">${esc(pick.why).replace(/(\d[\d,]+)/g, '<strong>$1</strong>')}</div>
+            <div class="pick-suggested">
+              <div class="pick-suggested-label">📝 建议标题</div>
+              <div class="pick-suggested-title">${esc(pick.suggested_title)}</div>
             </div>
-          </div>`;
-      }).join("");
-    } else {
-      insightsBox.innerHTML = "";
-    }
-
-    // 2. 渲染品类热度图
-    const heatmapBox = document.getElementById("categoryHeatmap");
-    const catData = analysis.category_analysis || {};
-    const maxCount = Math.max(...Object.values(catData).map(c => c.count || 0), 1);
-    const maxInter = Math.max(...Object.values(catData).map(c => c.total_interactions || 0), 1);
-
-    if (Object.keys(catData).length > 0) {
-      const sorted = Object.entries(catData).sort((a, b) => (b[1].total_interactions || 0) - (a[1].total_interactions || 0));
-      heatmapBox.innerHTML = `
-        <div class="heatmap-title">品类热度分布</div>
-        <div class="heatmap-bars">
-          ${sorted.map(([cat, d]) => {
-            const countPct = ((d.count || 0) / maxCount * 100).toFixed(0);
-            const interPct = ((d.total_interactions || 0) / maxInter * 100).toFixed(0);
-            return `
-              <div class="heatmap-row" style="--cat:var(--cat-${cat}, var(--purple));">
-                <span class="heatmap-cat">${escapeHTML(cat)}</span>
-                <div class="heatmap-bar-wrap">
-                  <div class="heatmap-bar" style="width:${interPct}%;"></div>
-                  <span class="heatmap-count">${d.count || 0}条</span>
-                </div>
-                <span class="heatmap-inter">${((d.total_interactions || 0) / 10000).toFixed(1)}w</span>
-                <span class="heatmap-score">均分 ${d.avg_score || '-'}</span>
-              </div>`;
-          }).join("")}
-        </div>`;
-    }
-  }
-
-  // ---------- 渲染：选题灵感 ----------
-  function renderIdeas() {
-    const box = document.getElementById("ideasContainer");
-    const section = document.getElementById("ideasSection");
-    const ideas = (typeof TOPIC_IDEAS !== "undefined" && TOPIC_IDEAS) || null;
-
-    if (!ideas || ideas.length === 0) {
-      section.style.display = "none";
-      return;
-    }
-
-    const diffLabel = (d) => {
-      const m = { low: "简单", medium: "中等", high: "深度" };
-      const c = { low: "#16a34a", medium: "#ca8a04", high: "#dc2626" };
-      const v = m[d] || d || "中等";
-      const color = c[d] || "#ca8a04";
-      return `<span class="diff-badge" style="--c:${color}">${ICON.cal}${v}</span>`;
-    };
-
-    const cards = ideas.map((idea, i) => {
-      const titleA = idea.title_a || idea.title || "";
-      const titleB = idea.title_b || "";
-      const cat = idea.category || "综合";
-      const angle = idea.angle || "";
-      const reason = idea.reason || "";
-      const diff = idea.diff || "";
-      const toutiaoTip = idea.toutiao_tip || "";
-      const refs = idea.refs || [];
-      const difficulty = idea.difficulty || "medium";
-
-      const refsHTML = refs.length
-        ? `<div class="idea-refs">${ICON.paper}<span>参考素材：第 ${refs.join("、")} 条</span></div>`
-        : "";
-
-      const titleBHTML = titleB
-        ? `<div class="idea-title-b">${ICON.paper}<span>B 方案：${escapeHTML(titleB)}</span></div>`
-        : "";
-
-      const diffHTML = diff
-        ? `<div class="idea-diff">${ICON.sparkle}<span class="idea-label">差异化</span><span>${escapeHTML(diff)}</span></div>`
-        : "";
-
-      const toutiaoHTML = toutiaoTip
-        ? `<div class="idea-toutiao">${ICON.phone}<span class="idea-label">头条适配</span><span>${escapeHTML(toutiaoTip)}</span></div>`
-        : "";
-
-      return `
-        <div class="idea-card" style="--cat:var(--cat-${cat});">
-          <div class="idea-header">
-            <span class="idea-num">${String(i + 1).padStart(2, "0")}</span>
-            <span class="cat-tag" style="--cat:var(--cat-${cat});">${escapeHTML(cat)}</span>
-            ${diffLabel(difficulty)}
+            <div class="pick-ref">
+              <span class="pick-angle-tag">${esc(pick.angle)}</span>
+              <span>参考爆款：</span>
+              ${ref.url ? `<a href="${esc(ref.url)}" target="_blank">${esc(ref.title)}</a>` : esc(ref.title)}
+              <span class="pick-ref-stat">📊 <span class="num">${fmt(ref.interactions || 0)}</span> 互动</span>
+              <span class="pick-ref-stat">💬 <span class="num">${fmt(ref.comments || 0)}</span> 评论</span>
+              <span class="pick-ref-stat">📍 ${esc(pick.platform)}</span>
+            </div>
           </div>
-          <h3 class="idea-title">${escapeHTML(titleA)}</h3>
-          ${titleBHTML}
-          ${angle ? `<div class="idea-angle">${ICON.paper}<span class="idea-label">写法</span><span>${escapeHTML(angle)}</span></div>` : ""}
-          ${reason ? `<div class="idea-reason">${ICON.fire}<span class="idea-label">为什么能火</span><span>${escapeHTML(reason)}</span></div>` : ""}
-          ${diffHTML}
-          ${toutiaoHTML}
-          ${refsHTML}
-        </div>`;
-    }).join("");
-
-    box.innerHTML = cards;
+        </div>
+      </div>
+    `;
   }
 
-  // ---------- 渲染：评论洞察 ----------
-  function renderInsight() {
-    const box = document.getElementById("insightContainer");
-    const section = document.getElementById("insightSection");
-    const insights = (typeof COMMENT_INSIGHTS !== "undefined" && COMMENT_INSIGHTS) || null;
+  html += `</div></div>`;
 
-    if (!insights || !insights.by_category || Object.keys(insights.by_category).length === 0) {
-      section.style.display = "none";
-      return;
+  // ── 评论区金矿 ──
+  const ci = D.comment_insights || {};
+  html += `<div class="section">`;
+  html += `<div class="section-label">💬 COMMENT MINING</div>`;
+  html += `<h2 class="section-title">评论区金矿</h2>`;
+  html += `<p class="section-desc">从爆款内容评论区提取的用户真实问题 · 每条都是你的下一个选题</p>`;
+  html += `<div class="comment-section">`;
+
+  // 高频问题
+  if (ci.top_questions && ci.top_questions.length > 0) {
+    html += `<div class="comment-subsection">`;
+    html += `<div class="comment-subsection-title">❓ 用户最关心的问题</div>`;
+    html += `<div class="comment-list">`;
+    for (const q of ci.top_questions) {
+      html += `
+        <div class="comment-item">
+          <div class="comment-likes">👍${q.likes}</div>
+          <div class="comment-text">
+            ${esc(q.question)}
+            <span class="comment-source">— 来自「${esc(q.source)}」</span>
+          </div>
+        </div>
+      `;
     }
-
-    const generated = insights.generated_at
-      ? `<div class="insight-meta" style="font-size:12px;color:var(--ink-4);margin-bottom:16px;">${ICON.cal}<span>洞察生成时间：${formatDate(insights.generated_at)} · 来源：${insights.total_videos_analyzed || 0} 条高互动视频评论</span></div>`
-      : "";
-
-    const cards = Object.entries(insights.by_category).map(([cat, data]) => {
-      const questions = (data.高频问题 || []).map(q =>
-        `<li>${escapeHTML(q)}</li>`).join("");
-      const debates = (data.争议话题 || []).map(q =>
-        `<li>${escapeHTML(q)}</li>`).join("");
-      const buzz = (data.口碑参考 || []).map(q =>
-        `<li>${escapeHTML(q)}</li>`).join("");
-      const pricing = (data.价格敏感点 || []).map(q =>
-        `<li>${escapeHTML(q)}</li>`).join("");
-
-      return `
-        <div class="insight-card" style="--cat:var(--cat-${cat});">
-          <div class="insight-card-header">
-            <span class="insight-cat">${escapeHTML(cat)}</span>
-            <span class="insight-stat">${data.评论样本 || 0} 样本</span>
-          </div>
-          <div class="insight-body">
-            ${questions ? `
-              <div class="insight-row">
-                <div class="insight-label">${ICON.flame} 高频问题</div>
-                <ul class="insight-list">${questions}</ul>
-              </div>` : ""}
-            ${debates ? `
-              <div class="insight-row">
-                <div class="insight-label">${ICON.sword} 争议话题</div>
-                <ul class="insight-list">${debates}</ul>
-              </div>` : ""}
-            ${buzz ? `
-              <div class="insight-row">
-                <div class="insight-label">${ICON.chat} 口碑参考</div>
-                <ul class="insight-list">${buzz}</ul>
-              </div>` : ""}
-            ${pricing ? `
-              <div class="insight-row">
-                <div class="insight-label">${ICON.coin} 价格敏感点</div>
-                <ul class="insight-list">${pricing}</ul>
-              </div>` : ""}
-          </div>
-          ${data.选题建议 ? `<div class="insight-tip">${ICON.bulb}<span style="margin-left:4px;">选题建议：${escapeHTML(data.选题建议)}</span></div>` : ""}
-        </div>`;
-    }).join("");
-
-    box.innerHTML = generated + cards;
+    html += `</div></div>`;
   }
 
-  // ---------- 渲染：统计卡片 ----------
-  function renderStats() {
-    const items = TODAY_DATA.items || [];
-    const highCount = items.filter(i => i.score >= STAT_HIGH_SCORE_THRESHOLD).length;
-    const categories = new Set(items.map(i => i.category));
-    const sources = new Set(items.map(i => i.source));
-
-    setText("statTotal", items.length);
-    setText("statHighScore", highCount);
-    setText("statCategory", categories.size);
-    setText("statSource", sources.size);
-    setText("todayDate", formatDate(TODAY_DATA.date));
+  // 用户吐槽
+  if (ci.top_complaints && ci.top_complaints.length > 0) {
+    html += `<div class="comment-subsection">`;
+    html += `<div class="comment-subsection-title">😤 用户吐槽 / 痛点（=选题机会）</div>`;
+    html += `<div class="comment-list">`;
+    for (const c of ci.top_complaints) {
+      html += `
+        <div class="comment-item">
+          <div class="comment-likes">👍${c.likes}</div>
+          <div class="comment-text">
+            ${esc(c.complaint)}
+            <span class="comment-source">— 来自「${esc(c.source)}」</span>
+          </div>
+        </div>
+      `;
+    }
+    html += `</div></div>`;
   }
 
-  // ---------- 渲染：筛选标签 ----------
-  function renderFilterTags() {
-    const wrap = document.getElementById("filterTags");
-    wrap.innerHTML = CATEGORY_FILTERS.map(cat => {
-      const active = cat === activeCategory ? "active" : "";
-      const style = cat !== "全部" ? `style="--cat:var(--cat-${cat});"` : "";
-      return `<span class="tag ${active}" data-cat="${cat}" ${style}>${escapeHTML(cat)}</span>`;
-    }).join("");
+  // 关键词云
+  if (ci.hot_keywords && ci.hot_keywords.length > 0) {
+    html += `<div class="comment-subsection">`;
+    html += `<div class="comment-subsection-title">🔑 评论高频词</div>`;
+    html += `<div class="keyword-cloud">`;
+    for (const kw of ci.hot_keywords) {
+      const freq = kw.count >= 5 ? 'high' : kw.count >= 2 ? 'mid' : '';
+      html += `<span class="keyword-tag" data-freq="${freq}">${esc(kw.keyword)} (${kw.count})</span>`;
+    }
+    html += `</div></div>`;
+  }
 
-    wrap.querySelectorAll(".tag").forEach(el => {
-      el.addEventListener("click", () => {
-        activeCategory = el.getAttribute("data-cat");
-        renderFilterTags();
-        renderRecommendations();
-        renderAllNews();
-      });
+  if ((!ci.top_questions || ci.top_questions.length === 0) && (!ci.top_complaints || ci.top_complaints.length === 0)) {
+    html += `<div class="comment-empty">今天暂未采集到评论区数据，正在持续挖掘中... 🚀</div>`;
+  }
+
+  html += `</div></div>`;
+
+  // ── 标题公式库 ──
+  if (D.title_formulas && D.title_formulas.length > 0) {
+    html += `<div class="section">`;
+    html += `<div class="section-label">📝 TITLE FORMULAS</div>`;
+    html += `<h2 class="section-title">爆款标题公式库</h2>`;
+    html += `<p class="section-desc">从历史爆款标题归纳的套路 · 直接填空就能用</p>`;
+    html += `<div class="formula-list">`;
+    for (const f of D.title_formulas) {
+      const examplesText = (f.examples || []).slice(0, 2).map(e => `「${e.title}」(${fmt(e.eng)}互动)`).join(' · ');
+      html += `
+        <div class="formula-card">
+          <div class="formula-power" data-power="${f.power}">${f.power}</div>
+          <div class="formula-body">
+            <div class="formula-pattern">${esc(f.pattern)}</div>
+            <div class="formula-why">${esc(f.why)}</div>
+            ${examplesText ? `<div class="formula-examples">案例：${examplesText}</div>` : ''}
+          </div>
+          <div class="formula-stat">
+            <div class="num">${f.viral_count}</div>
+            <div class="label">爆款</div>
+          </div>
+        </div>
+      `;
+    }
+    html += `</div></div>`;
+  }
+
+  // ── 时机雷达 ──
+  if (D.timing_alerts && D.timing_alerts.length > 0) {
+    html += `<div class="section">`;
+    html += `<div class="section-label">⏰ TIMING RADAR</div>`;
+    html += `<h2 class="section-title">选题时机雷达</h2>`;
+    html += `<p class="section-desc">跟着节气/事件走，踩对时间窗口 = 事半功倍</p>`;
+    html += `<div class="timing-list">`;
+    for (const t of D.timing_alerts) {
+      const icon = t.urgency === 'high' ? '🔴' : t.urgency === 'medium' ? '🟡' : '🟢';
+      html += `
+        <div class="timing-card" data-urgency="${t.urgency}">
+          <div class="timing-icon">${icon}</div>
+          <div class="timing-body">
+            <div class="timing-event">${esc(t.event)} · ${esc(t.category)}</div>
+            <div class="timing-direction">建议方向：${esc(t.direction)}</div>
+          </div>
+          <div class="timing-status">${esc(t.status)}</div>
+        </div>
+      `;
+    }
+    html += `</div></div>`;
+  }
+
+  // ── 品类趋势 ──
+  if (D.category_trend && D.category_trend.length > 0) {
+    html += `<div class="section">`;
+    html += `<div class="section-label">📊 CATEGORY TREND</div>`;
+    html += `<h2 class="section-title">品类热度</h2>`;
+    html += `<p class="section-desc">基于历史数据，哪个品类流量最大一目了然</p>`;
+    html += `<div class="trend-grid">`;
+    for (const c of D.category_trend) {
+      html += `
+        <div class="trend-card">
+          <div class="trend-cat">${c.trend_icon} ${esc(c.category)}</div>
+          <div class="trend-stats">
+            <span><span class="num">${fmt(c.total_interactions)}</span> 互动</span>
+            <span><span class="num">${c.total_items}</span> 条</span>
+            <span>均<span class="num">${c.avg_score}</span></span>
+          </div>
+        </div>
+      `;
+    }
+    html += `</div></div>`;
+  }
+
+  // ── 素材库 ──
+  html += `<div class="section">`;
+  html += `<div class="section-label">📁 RAW MATERIAL</div>`;
+  html += `<h2 class="section-title">素材库</h2>`;
+  html += `<p class="section-desc">全部爆款素材 · 按品类筛选 · 共 ${D.items.length} 条</p>`;
+  
+  // 筛选
+  const categories = [...new Set(D.items.map(i => i.category || '未知'))];
+  html += `<div class="filter-bar">`;
+  html += `<div class="filter-chip active" data-cat="all">全部</div>`;
+  for (const cat of categories) {
+    html += `<div class="filter-chip" data-cat="${esc(cat)}">${esc(cat)}</div>`;
+  }
+  html += `</div>`;
+  html += `<input class="search-box" id="materialSearch" placeholder="搜索标题 / 来源..." />`;
+
+  html += `<div class="material-list" id="materialList">`;
+  html += renderMaterialList(D.items);
+  html += `</div></div>`;
+
+  html += `</div>`; // container
+
+  // 归档
+  html += `<a class="archive-link" href="#" id="archiveBtn">📅 历史归档</a>`;
+
+  app.innerHTML = html;
+  
+  // 绑定事件
+  bindEvents();
+}
+
+function renderMaterialList(items) {
+  if (!items || items.length === 0) {
+    return `<div class="empty-state">暂无数据</div>`;
+  }
+  let html = '';
+  for (const item of items) {
+    const eng = item.douyin_interactions || item.toutiao_engagement || 0;
+    const comments = item.douyin_comments || item.toutiao_comment_count || 0;
+    const platform = item.source?.includes('抖音') ? '抖音' :
+                     item.source?.includes('小红书') ? '小红书' :
+                     item.source?.includes('头条') ? '头条' : '媒体';
+    const score = item.score || 0;
+    const level = score >= 9 ? 'hot' : score >= 8 ? 'good' : score >= 7 ? 'mid' : 'low';
+    
+    html += `
+      <div class="material-card" data-cat="${esc(item.category || '未知')}">
+        <div class="material-platform" data-platform="${platform}">${platform}</div>
+        <div class="material-body">
+          <div class="material-title">
+            ${item.url ? `<a href="${esc(item.url)}" target="_blank">${esc(item.title)}</a>` : esc(item.title)}
+          </div>
+          <div class="material-meta">
+            <span>${esc(item.source || '')}</span>
+            <span>📊 ${fmt(eng)}</span>
+            ${comments > 0 ? `<span>💬 ${fmt(comments)}</span>` : ''}
+          </div>
+        </div>
+        <div class="material-score" data-level="${level}">${score.toFixed(1)}</div>
+      </div>
+    `;
+  }
+  return html;
+}
+
+function bindEvents() {
+  // 品类筛选
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      filterMaterial();
     });
+  });
+  
+  // 搜索
+  const search = document.getElementById('materialSearch');
+  if (search) {
+    search.addEventListener('input', filterMaterial);
   }
+}
 
-  // ---------- 渲染：高价值推荐 ----------
-  function renderRecommendations() {
-    const grid = document.getElementById("recommendGrid");
-    const section = document.getElementById("recommendSection");
-
-    const recs = (TODAY_DATA.items || [])
-      .filter(i => i.score >= HIGH_SCORE_THRESHOLD)
-      .filter(matchFilters)
-      .sort((a, b) => b.score - a.score);
-
-    if (activeCategory !== "全部" || searchKeyword) {
-      section.style.display = recs.length ? "" : "none";
-    } else {
-      section.style.display = "";
-    }
-
-    grid.innerHTML = recs.length
-      ? recs.map(i => cardHTML(i, true)).join("")
-      : `<div class="empty-state">当前筛选下暂无 ≥ 8 分的高价值选题</div>`;
+function filterMaterial() {
+  const activeCat = document.querySelector('.filter-chip.active')?.dataset.cat || 'all';
+  const searchText = document.getElementById('materialSearch')?.value.toLowerCase() || '';
+  
+  let filtered = D.items;
+  if (activeCat !== 'all') {
+    filtered = filtered.filter(i => (i.category || '未知') === activeCat);
   }
-
-  // ---------- 渲染：全部信息 ----------
-  function renderAllNews() {
-    const grid = document.getElementById("newsGrid");
-    const empty = document.getElementById("emptyState");
-
-    const list = (TODAY_DATA.items || [])
-      .filter(matchFilters)
-      .sort((a, b) => b.score - a.score);
-
-    if (!list.length) {
-      grid.innerHTML = "";
-      empty.style.display = "";
-      return;
-    }
-    empty.style.display = "none";
-    grid.innerHTML = list.map(i => cardHTML(i, false)).join("");
+  if (searchText) {
+    filtered = filtered.filter(i => 
+      (i.title || '').toLowerCase().includes(searchText) ||
+      (i.source || '').toLowerCase().includes(searchText)
+    );
   }
+  
+  document.getElementById('materialList').innerHTML = renderMaterialList(filtered);
+}
 
-  // ---------- 渲染：历史归档 ----------
-  function renderArchive() {
-    const box = document.getElementById("archiveContainer");
-
-    if (!ARCHIVES || ARCHIVES.length === 0) {
-      box.innerHTML = `<div class="archive-empty">${ICON.inbox}<span style="margin-left:6px;">暂无历史归档数据，每日数据将自动归档到此处。</span></div>`;
-      return;
-    }
-
-    box.innerHTML = `<div class="archive-list">` + ARCHIVES.map(day => {
-      const count = (day.items || []).length;
-      return `
-        <div class="archive-item">
-          <span>${formatDate(day.date)}</span>
-          <span class="count">${count} 条</span>
-        </div>`;
-    }).join("") + `</div>`;
-  }
-
-  // ---------- 搜索绑定 ----------
-  function bindSearch() {
-    const input = document.getElementById("searchInput");
-    let timer = null;
-    input.addEventListener("input", e => {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        searchKeyword = e.target.value.trim();
-        renderRecommendations();
-        renderAllNews();
-      }, 160);
-    });
-  }
-
-  // ---------- 工具 ----------
-  function setText(id, val) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = val;
-  }
-
-  function formatDate(str) {
-    if (!str) return "—";
-    const m = String(str).match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    if (m) return `${m[1]}-${m[2]}-${m[3]}`;
-    return str;
-  }
-
-  function escapeHTML(s) {
-    return String(s)
-      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
-  }
-  function escapeAttr(s) { return escapeHTML(s); }
-
-  // ---------- 初始化 ----------
-  function init() {
-    renderStats();
-    renderFilterTags();
-    renderAnalysis();
-    renderIdeas();
-    renderInsight();
-    renderRecommendations();
-    renderAllNews();
-    renderArchive();
-    bindSearch();
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
-})();
+// 启动
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', render);
+} else {
+  render();
+}
