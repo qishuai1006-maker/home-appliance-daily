@@ -122,13 +122,37 @@ if mi_items:
     })
 
 # Insight 4: 头条真实数据（新增 - 反映今天数据特点）
-h4_items = [i for i in items if i.get('tier') == 'H4']  # 只看今日头条
-if h4_items:
-    real_hot = [i for i in h4_items if i.get('toutiao_engagement', 0) >= 50]
-    fake = [i for i in h4_items if i.get('toutiao_engagement', 0) < 10]
-    avg_h4_eng = sum(i.get('toutiao_engagement', 0) for i in h4_items) / max(len(h4_items), 1)
+# 用今日采集阶段的全量数据（从 trace log 反推），不用精选 15 条
+all_today_h4 = [i for i in all_items if i.get('_date') == TODAY and i.get('tier') == 'H4']
+# 如果 articles.json 只有精选（典型情况），从今日 digest trace 反推真实 H4 采集量
+import subprocess as _sp
+_trace_h4_count = None
+_trace_h4_engs = []
+try:
+    for _log in ['/tmp/digest_final.log', '/tmp/digest_trace3.log', '/tmp/digest_trace2.log']:
+        try:
+            # 只取 [trace H4] 行的 eng，避开 LLM 限分行的 eng=
+            _out = _sp.check_output(['bash', '-c', f"grep '\\[trace H4\\]' {_log} | grep -oE 'eng=[0-9]+'"], stderr=_sp.DEVNULL).decode().strip()
+            if _out:
+                _trace_h4_engs = [int(x.split('=')[1]) for x in _out.split('\n') if '=' in x]
+                _trace_h4_count = len(_trace_h4_engs)
+                if _trace_h4_count > 0:
+                    break
+        except Exception:
+            continue
+except Exception:
+    pass
+# 优先用 trace 数据（真实采集量）
+if _trace_h4_count:
+    all_today_h4 = []  # 重建虚拟列表
+    for _eng in _trace_h4_engs:
+        all_today_h4.append({'toutiao_engagement': _eng, 'tier': 'H4'})
+if all_today_h4:
+    real_hot = [i for i in all_today_h4 if i.get('toutiao_engagement', 0) >= 50]
+    low_eng = [i for i in all_today_h4 if i.get('toutiao_engagement', 0) < 10]
+    avg_h4_eng = sum(i.get('toutiao_engagement', 0) for i in all_today_h4) / max(len(all_today_h4), 1)
     insights.append({
-        'finding': f"今日头条 H4 采集 {len(h4_items)} 条（跳过 {sum(1 for i in items if i.get('tier')=='H4' and i.get('toutiao_engagement', 0)==0 and not i.get('toutiao_is_hot'))} 条低互动），平均 engagement {avg_h4_eng:.0f}，其中 {len(real_hot)} 条达到参考阈值",
+        'finding': f"今日头条 H4 采集 {len(all_today_h4)} 条（其中 {len(low_eng)} 条 engagement<10），平均 {avg_h4_eng:.0f}，{len(real_hot)} 条达到参考阈值（≥50）",
         'so_what': '今日头条上"真实爆文"和"标题党"差距巨大。engagement ≥ 50 的内容才值得参考写作方向，< 10 的基本都是机器稿/软文',
         'why': '头条用户更认"真实收藏/评论"的内容，"30款全型号深度横评"这类 AI 模板稿已经没有流量',
         'now_what': '写头条内容时，优先参考"换了3次油烟机才明白"这种真实故事型标题（eng=7400），不要模仿标题党模板',
