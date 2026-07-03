@@ -3,70 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="家电行业每日情报 · 选题决策辅助 · 35-50岁男性家庭决策者视角">
+  <meta name="theme-color" content="#0a0e1a">
   <title>家电行业日报 · 每日选题决策辅助</title>
-  <link rel="stylesheet" href="style.css?v=202607021229">
+  <link rel="stylesheet" href="style.css?v=v2-20260703">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 </head>
 <body>
-  <!-- 背景网格层 -->
-  <div class="bg-grid"></div>
-  <div class="bg-glow bg-glow-1"></div>
-  <div class="bg-glow bg-glow-2"></div>
+  <!-- 无障碍 skip link -->
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <!-- 背景装饰层 -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-3" aria-hidden="true"></div>
 
   <!-- ============ HERO 区 ============ -->
-  <header class="hero">
+  <header class="hero" role="banner">
     <div class="hero-inner">
-      <div class="hero-badge">⚡ 每日更新 · 家电行业情报</div>
+      <div class="hero-badge">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span>每日更新 · 家电行业情报</span>
+      </div>
       <h1 class="hero-title">家电行业日报</h1>
-      <p class="hero-subtitle">每日选题决策辅助</p>
-      <div class="hero-date" id="todayDate">—</div>
+      <p class="hero-subtitle">每日选题决策辅助 · 35-50岁家庭决策者视角</p>
+      <div class="hero-date" id="todayDate" role="status" aria-live="polite">—</div>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="main">
 
     <!-- ============ 统计卡片 ============ -->
-    <section class="stats" id="stats">
+    <section class="stats" id="stats" aria-label="今日数据概览">
       <div class="stat-card">
-        <div class="stat-icon">📰</div>
+        <div class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16v4H4zM4 10h16v10H4zM8 14h4M8 17h6"/>
+          </svg>
+        </div>
         <div class="stat-value" id="statTotal">0</div>
         <div class="stat-label">今日总数</div>
       </div>
+
       <div class="stat-card highlight">
-        <div class="stat-icon">🔥</div>
+        <div class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l2.39 7.36H22l-6.18 4.49 2.36 7.36L12 16.72l-6.18 4.49 2.36-7.36L2 9.36h7.61L12 2z"/>
+          </svg>
+        </div>
         <div class="stat-value" id="statHighScore">0</div>
         <div class="stat-label">高分选题 (≥7分)</div>
       </div>
+
       <div class="stat-card">
-        <div class="stat-icon">🏷️</div>
+        <div class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01"/>
+          </svg>
+        </div>
         <div class="stat-value" id="statCategory">0</div>
         <div class="stat-label">品类覆盖</div>
       </div>
+
       <div class="stat-card">
-        <div class="stat-icon">📡</div>
+        <div class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
         <div class="stat-value" id="statSource">0</div>
         <div class="stat-label">来源数</div>
       </div>
     </section>
 
     <!-- ============ 筛选条 ============ -->
-    <section class="toolbar">
-      <div class="filter-tags" id="filterTags">
+    <section class="toolbar" aria-label="筛选与搜索">
+      <div class="filter-tags" id="filterTags" role="tablist">
         <!-- 品类标签由 app.js 渲染 -->
       </div>
       <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" placeholder="搜索标题 / 来源 / 选题角度…">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="search" id="searchInput" placeholder="搜索标题 / 来源 / 选题角度…" aria-label="搜索内容">
       </div>
     </section>
 
     <!-- ============ 选题灵感（AI 生成） ============ -->
-    <section class="section" id="ideasSection">
+    <section class="section" id="ideasSection" aria-labelledby="ideasHeading">
       <div class="section-header">
-        <h2 class="section-title">
-          <span class="section-icon">✨</span> 今日选题灵感
-          <span class="section-hint">AI 基于热门内容生成 · 可直接取用的写作方向</span>
+        <h2 class="section-title" id="ideasHeading">
+          <span class="section-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </span>
+          今日选题灵感
         </h2>
+        <span class="section-hint">AI 基于热门内容生成 · 可直接取用的写作方向</span>
       </div>
       <div id="ideasContainer" class="ideas-grid">
         <!-- 由 app.js 渲染 -->
@@ -74,12 +113,17 @@
     </section>
 
     <!-- ============ 用户评论洞察（选题金矿） ============ -->
-    <section class="section" id="insightSection">
+    <section class="section" id="insightSection" aria-labelledby="insightHeading">
       <div class="section-header">
-        <h2 class="section-title">
-          <span class="section-icon">💬</span> 用户评论洞察
-          <span class="section-hint">评论区用户真实关心的问题 · 选题金矿</span>
+        <h2 class="section-title" id="insightHeading">
+          <span class="section-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </span>
+          用户评论洞察
         </h2>
+        <span class="section-hint">评论区用户真实关心的问题 · 选题金矿</span>
       </div>
       <div id="insightContainer" class="insight-grid">
         <!-- 由 app.js 渲染 -->
@@ -87,12 +131,17 @@
     </section>
 
     <!-- ============ 选题推荐区 (score≥8) ============ -->
-    <section class="section" id="recommendSection">
+    <section class="section" id="recommendSection" aria-labelledby="recommendHeading">
       <div class="section-header">
-        <h2 class="section-title">
-          <span class="section-icon">⭐</span> 高价值选题推荐
-          <span class="section-hint">评分 ≥ 8 分 · 优先考虑</span>
+        <h2 class="section-title" id="recommendHeading">
+          <span class="section-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+            </svg>
+          </span>
+          高价值选题推荐
         </h2>
+        <span class="section-hint">评分 ≥ 8 分 · 优先考虑</span>
       </div>
       <div class="recommend-grid" id="recommendGrid">
         <!-- 由 app.js 渲染 -->
@@ -100,42 +149,59 @@
     </section>
 
     <!-- ============ 全部信息区 ============ -->
-    <section class="section">
+    <section class="section" aria-labelledby="allHeading">
       <div class="section-header">
-        <h2 class="section-title">
-          <span class="section-icon">📋</span> 全部信息
-          <span class="section-hint">按评分排序</span>
+        <h2 class="section-title" id="allHeading">
+          <span class="section-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="8" y1="6" x2="21" y2="6"/>
+              <line x1="8" y1="12" x2="21" y2="12"/>
+              <line x1="8" y1="18" x2="21" y2="18"/>
+              <line x1="3" y1="6" x2="3.01" y2="6"/>
+              <line x1="3" y1="12" x2="3.01" y2="12"/>
+              <line x1="3" y1="18" x2="3.01" y2="18"/>
+            </svg>
+          </span>
+          全部信息
         </h2>
+        <span class="section-hint">按评分排序</span>
       </div>
       <div class="news-grid" id="newsGrid">
         <!-- 由 app.js 渲染 -->
       </div>
       <div class="empty-state" id="emptyState" style="display:none;">
-        😶 没有匹配的信息，试试调整筛选条件
+        没有匹配的信息，试试调整筛选条件
       </div>
     </section>
 
     <!-- ============ 历史归档区 ============ -->
-    <section class="section">
+    <section class="section" aria-labelledby="archiveHeading">
       <div class="section-header">
-        <h2 class="section-title">
-          <span class="section-icon">📚</span> 历史归档
+        <h2 class="section-title" id="archiveHeading">
+          <span class="section-title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="21 8 21 21 3 21 3 8"/>
+              <rect x="1" y="3" width="22" height="5"/>
+              <line x1="10" y1="12" x2="14" y2="12"/>
+            </svg>
+          </span>
+          历史归档
         </h2>
       </div>
-      <div id="archiveContainer">
+      <div id="archiveContainer" class="archive-grid">
         <!-- 由 app.js 渲染 -->
       </div>
     </section>
 
   </main>
 
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <p>家电行业日报 · 数据来源：中国家电网 / 万维家电网 / 品牌官网 / 抖音家电垂类达人</p>
     <p class="footer-note">本页仅供选题决策参考，评分与选题角度为辅助建议</p>
   </footer>
 
   <!-- 数据与脚本：data.js 必须在 app.js 之前 -->
-  <script src="data.js?v=202607021229"></script>
-  <script src="app.js?v=202607021229"></script>
+  <script src="data.js?v=v2-20260703"></script>
+  <script src="app.js?v=v2-20260703"></script>
 </body>
 </html>
