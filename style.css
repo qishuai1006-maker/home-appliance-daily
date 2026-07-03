@@ -801,6 +801,142 @@ a:hover { color: var(--purple-dark); }
   .idea-title { font-size: 16px; }
 }
 
+/* ============ 数据洞察分析区 ============ */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.insight-analysis-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+}
+.insight-analysis-card:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.insight-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.insight-num {
+  font-family: 'Source Serif 4', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--purple);
+  line-height: 1;
+}
+.insight-tag {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--c, var(--ink-4)) 12%, #fff);
+  color: var(--c, var(--ink-3));
+  border: 1px solid color-mix(in srgb, var(--c, var(--ink-4)) 25%, transparent);
+  font-weight: 500;
+  font-family: 'Source Code Pro', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.insight-finding {
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 10px 12px;
+  background: var(--bg-soft);
+  border-radius: 4px;
+  border-left: 3px solid var(--purple);
+  margin-bottom: 14px;
+  display: flex;
+  gap: 6px;
+}
+.insight-finding svg { flex-shrink: 0; margin-top: 2px; color: var(--purple); }
+.insight-chain { display: flex; flex-direction: column; gap: 8px; }
+.chain-row {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.chain-label {
+  flex-shrink: 0;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 70px;
+  padding-top: 1px;
+}
+
+/* 品类热度图 */
+.heatmap-title {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 12px;
+  color: var(--ink-4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.heatmap-bars { display: flex; flex-direction: column; gap: 6px; }
+.heatmap-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 60px 70px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+.heatmap-cat {
+  color: var(--ink-2);
+  font-weight: 500;
+}
+.heatmap-bar-wrap {
+  position: relative;
+  height: 24px;
+  background: var(--bg-soft);
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+.heatmap-bar {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: color-mix(in srgb, var(--cat, var(--purple)) 85%, transparent);
+  border-radius: 3px;
+  opacity: 0.7;
+}
+.heatmap-count {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  color: var(--ink-2);
+  font-weight: 500;
+}
+.heatmap-inter {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 12px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.heatmap-score {
+  font-size: 11px;
+  color: var(--ink-4);
+  font-variant-numeric: tabular-nums;
+}
+
 /* ============ 焦点态（a11y） ============ */
 :focus-visible {
   outline: 2px solid var(--purple);

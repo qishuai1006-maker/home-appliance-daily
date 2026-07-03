@@ -180,6 +180,73 @@
     return n;
   }
 
+  // ---------- 渲染：数据洞察分析 ----------
+  function renderAnalysis() {
+    const section = document.getElementById("analysisSection");
+    const analysis = TODAY_DATA.analysis;
+    if (!analysis || (!analysis.insights && !analysis.category_analysis)) {
+      section.style.display = "none";
+      return;
+    }
+
+    // 1. 渲染洞察卡片
+    const insightsBox = document.getElementById("insightsContainer");
+    const insights = analysis.insights || [];
+    if (insights.length > 0) {
+      const confidenceColors = { high: "#16a34a", medium: "#ca8a04", low: "#94a3b8" };
+      const impactColors = { high: "#dc2626", medium: "#ea580c", low: "#64748b" };
+      
+      insightsBox.innerHTML = insights.map((ins, i) => {
+        const confColor = confidenceColors[ins.confidence] || "#94a3b8";
+        const impColor = impactColors[ins.impact] || "#64748b";
+        return `
+          <div class="insight-analysis-card">
+            <div class="insight-header">
+              <span class="insight-num">${String(i + 1).padStart(2, "0")}</span>
+              <span class="insight-tag" style="--c:${confColor};">置信度 ${ins.confidence}</span>
+              <span class="insight-tag" style="--c:${impColor};">影响力 ${ins.impact}</span>
+            </div>
+            <div class="insight-finding">${ICON.target}<span>${escapeHTML(ins.finding)}</span></div>
+            <div class="insight-chain">
+              <div class="chain-row"><span class="chain-label" style="color:#533afd;">So What</span><span>${escapeHTML(ins.so_what)}</span></div>
+              <div class="chain-row"><span class="chain-label" style="color:#7c3aed;">Why</span><span>${escapeHTML(ins.why)}</span></div>
+              <div class="chain-row"><span class="chain-label" style="color:#dc2626;">Now What</span><span>${escapeHTML(ins.now_what)}</span></div>
+            </div>
+          </div>`;
+      }).join("");
+    } else {
+      insightsBox.innerHTML = "";
+    }
+
+    // 2. 渲染品类热度图
+    const heatmapBox = document.getElementById("categoryHeatmap");
+    const catData = analysis.category_analysis || {};
+    const maxCount = Math.max(...Object.values(catData).map(c => c.count || 0), 1);
+    const maxInter = Math.max(...Object.values(catData).map(c => c.total_interactions || 0), 1);
+
+    if (Object.keys(catData).length > 0) {
+      const sorted = Object.entries(catData).sort((a, b) => (b[1].total_interactions || 0) - (a[1].total_interactions || 0));
+      heatmapBox.innerHTML = `
+        <div class="heatmap-title">品类热度分布</div>
+        <div class="heatmap-bars">
+          ${sorted.map(([cat, d]) => {
+            const countPct = ((d.count || 0) / maxCount * 100).toFixed(0);
+            const interPct = ((d.total_interactions || 0) / maxInter * 100).toFixed(0);
+            return `
+              <div class="heatmap-row" style="--cat:var(--cat-${cat}, var(--purple));">
+                <span class="heatmap-cat">${escapeHTML(cat)}</span>
+                <div class="heatmap-bar-wrap">
+                  <div class="heatmap-bar" style="width:${interPct}%;"></div>
+                  <span class="heatmap-count">${d.count || 0}条</span>
+                </div>
+                <span class="heatmap-inter">${((d.total_interactions || 0) / 10000).toFixed(1)}w</span>
+                <span class="heatmap-score">均分 ${d.avg_score || '-'}</span>
+              </div>`;
+          }).join("")}
+        </div>`;
+    }
+  }
+
   // ---------- 渲染：选题灵感 ----------
   function renderIdeas() {
     const box = document.getElementById("ideasContainer");
@@ -435,6 +502,7 @@
   function init() {
     renderStats();
     renderFilterTags();
+    renderAnalysis();
     renderIdeas();
     renderInsight();
     renderRecommendations();
