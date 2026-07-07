@@ -18,7 +18,7 @@ P0 改造：
 - 标题公式追踪（近14天使用次数/疲劳风险）
 - 品类热度解释"为什么没进TOP3"
 """
-import json, os, re, subprocess, time
+import json, os, re, subprocess, time, sys
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 
@@ -36,9 +36,24 @@ LLM_BASE = "https://open.bigmodel.cn/api/coding/paas/v4"
 LLM_MODEL = "glm-5.2"
 
 # ════════════════════════════════════════════════════════════
-# 1. 加载数据
+# 1. 加载数据（自动找到最新的 articles.json）
 # ════════════════════════════════════════════════════════════
-with open(os.path.join(DATA_DIR, f"{TODAY}_articles.json")) as f:
+today_path = os.path.join(DATA_DIR, f"{TODAY}_articles.json")
+if not os.path.exists(today_path):
+    # 找最新的 articles.json
+    json_files = sorted([f for f in os.listdir(DATA_DIR)
+                         if f.endswith('_articles.json') and not f.startswith('analysis')],
+                        reverse=True)
+    if json_files:
+        latest = json_files[0].replace('_articles.json', '')
+        today_path = os.path.join(DATA_DIR, f"{latest}_articles.json")
+        print(f"⚠️ 今日无数据，使用最近数据: {latest}")
+        TODAY = latest  # 更新 TODAY 使后续逻辑一致
+    else:
+        print("❌ 无任何数据文件")
+        sys.exit(1)
+
+with open(today_path) as f:
     items = json.load(f)
 ideas_path = os.path.join(DATA_DIR, f"{TODAY}_ideas.json")
 ideas = json.load(open(ideas_path)) if os.path.exists(ideas_path) else []
@@ -189,7 +204,7 @@ def call_llm(prompt, system="", max_tokens=2000, temperature=0.7):
     print(f"    [LLM调用] model={LLM_MODEL} max_tokens={max_tokens} prompt_len={len(prompt)}")
     try:
         from openai import OpenAI
-        client = OpenAI(api_key=LLM_KEY, base_url=LLM_BASE, timeout=90.0)
+        client = OpenAI(api_key=LLM_KEY, base_url=LLM_BASE, timeout=180.0)
         messages = []
         if system:
             messages.append({"role": "system", "content": system})
