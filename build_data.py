@@ -160,6 +160,57 @@ def detect_formula(title):
             return f['name']
     return None
 
+def formula_struct_templates(name):
+    """公式的结构模板（不是 TOP3 拼凑，是公式本身的可填空模板）"""
+    templates = {
+        '参数错位型': [
+            '【品类】千万别只看【参数1】，【参数2】才是关键',
+            '你以为【参数1】重要？老司机才看【参数2】',
+            '【品类】选错别怪导购，这3个参数里【X】才是真坑',
+        ],
+        '避坑警告型': [
+            '【品类】这【N】种千万别买！',
+            '买【品类】不想被坑，先问这3个问题',
+            '【品类】避坑指南：行内人不会告诉你的【N】件事',
+        ],
+        'N点攻略型': [
+            '【品类】选购记住这【N】点，导购都夸你内行',
+            '买【品类】前必看！这【N】个原则能省一半钱',
+            '【品类】怎么选？【N】条铁律收藏够用一年',
+        ],
+        '场景判决型': [
+            '【场景】的【品类】怎么选？别只看【参数】，这3点才致命',
+            '【户型/楼层】的【品类】，照这【N】个标准选不出错',
+            '【特定人群】买【品类】，跟普通人选完全不一样',
+        ],
+        '装修师傅型': [
+            '干了【N】年装修，告诉你【品类】到底怎么选',
+            '装修师傅不会说：买【品类】先问这【N】个问题',
+            '装过【N】套房，总结出的【品类】避坑清单',
+        ],
+        '实测开箱型': [
+            '【品类】用了【N】个月/半年，真实体验来了',
+            '花【价格】买的【品类】，实测【时长】值不值？',
+            '【品类】开箱实测：真和宣传的差多少？',
+        ],
+        '反问悬念型': [
+            '为什么【现象】？90%的人都想错了',
+            '【品类】到底是不是智商税？拆给你看',
+            '你以为【品类】越贵越好？真相是……',
+        ],
+        '账单反噬型': [
+            '【品类】一个月电费【X】元！原来是这步做错了',
+            '买【品类】便宜了【X】块，用一年多花【Y】块',
+            '省了【价格】买【品类】贵的那款，电费立省一半',
+        ],
+        '血泪教训型': [
+            '换了【N】次【品类】才明白，这【N】个坑太贵了',
+            '买【品类】交了【N】次学费后，才搞懂这【N】件事',
+            '入住【时长】才后悔：【品类】早知道这么选',
+        ],
+    }
+    return templates.get(name, [f'使用{name}的典型套路，结合品类/场景/参数'])
+
 # 近14天标题公式使用频次
 cutoff_14 = datetime.now() - timedelta(days=14)
 formula_usage_14d = Counter()
@@ -644,12 +695,12 @@ comment_insights = mine_comments(items, top_picks)
 print(f"  采集 {comment_insights['total_mined']} 条评论 | 转选题 {len(comment_insights['transformed_picks'])} 条")
 
 # ════════════════════════════════════════════════════════════
-# 8. 今日用户痛点 TOP5（多来源合并：评论转化 + TOP3痛点 + 原始评论）
+# 8. 今日用户痛点 TOP5（只用真实评论，不用 TOP3 兜底避免重复）
 # ════════════════════════════════════════════════════════════
 top_pain_points = []
 seen_pain = set()
 
-# 源 1: 评论转化结果
+# 源 1: 评论转化结果（来自真实评论）
 for pick in comment_insights.get('transformed_picks', []):
     pain = pick.get('pain', '').strip()
     if pain and pain not in seen_pain:
@@ -665,24 +716,7 @@ for pick in comment_insights.get('transformed_picks', []):
         if len(top_pain_points) >= 5:
             break
 
-# 源 2: TOP3 里的 user_pain（当评论不够时从 TOP3 抽）
-if len(top_pain_points) < 5:
-    for p in top_picks:
-        if len(top_pain_points) >= 5:
-            break
-        pain = p.get('user_pain', '').strip()
-        if pain and pain not in seen_pain:
-            seen_pain.add(pain)
-            top_pain_points.append({
-                'source': 'TOP3',
-                'user_quote': (p.get('openings_3s', [''])[0] or '')[:80],
-                'pain': pain,
-                'category': p.get('category', '其他'),
-                'transformable_title': p.get('video_title', ''),
-                'suitable': '短视频',
-            })
-
-# 源 3: 原始评论问题
+# 源 2: 原始评论区（真实问题）
 if len(top_pain_points) < 5:
     for c in comment_insights.get('top_questions', []):
         if len(top_pain_points) >= 5:
@@ -699,6 +733,9 @@ if len(top_pain_points) < 5:
                 'suitable': '短视频/图文',
             })
 
+# 注意：不再 fallback 到 TOP3（那会与左侧 TOP3 重复）
+# 如果没有评论数据，前端会显示"暂无评论"提示
+
 # ════════════════════════════════════════════════════════════
 # 9. 标题公式库（带使用频次）
 # ════════════════════════════════════════════════════════════
@@ -712,23 +749,16 @@ for f in TITLE_FORMULA_PATTERNS:
     examples = formula_examples_14d.get(name, [])
     total_eng = sum(e['eng'] for e in examples)
     
-    # 用该公式可以怎么套到当前 TOP3
+    # 经典案例（优先用真实历史爆款，没有就展示公式结构模板）
     apply_demo = []
-    for pick in top_picks:
-        orig = pick.get('video_title', '')
-        cat = pick.get('category', '家电')
-        if '参数' in name:
-            apply_demo.append(f"{cat}千万别只看参数，{pick.get('user_pain','真实痛点')[:15]}")
-        elif '避坑' in name:
-            apply_demo.append(f"{cat}选购避坑：{pick.get('user_pain','真实痛点')[:15]}")
-        elif '场景' in name:
-            apply_demo.append(f"具体场景+{cat}怎么选不踩坑")
-        elif 'N点' in name:
-            apply_demo.append(f"{cat}选购记住这5点，导购都夸你内行")
-        elif '实测' in name:
-            apply_demo.append(f"实测{cat}半年，说说真实体验")
-        else:
-            apply_demo.append(f"{cat}选购{orig[:10]}")
+    for ex in examples[:3]:
+        if ex.get('title'):
+            apply_demo.append({'text': ex['title'], 'is_real': True})
+    # 如果真实案例不足 3 个，用公式结构模板补
+    if len(apply_demo) < 3:
+        templates = formula_struct_templates(name)
+        for t in templates[:3 - len(apply_demo)]:
+            apply_demo.append({'text': t, 'is_real': False})
     
     title_formulas.append({
         'name': name,
@@ -854,13 +884,14 @@ for cat in cat_data:
     cat_data[cat]['in_top3'] = cat in top3_cats
 
 # 解释"为什么没进TOP3"
-def explain_why_not_in_top3(cat, today_n, total_inter):
+def explain_why_not_in_top3(cat, today_n, total_inter, avg_score):
     if today_n == 0:
-        return f"今日无 {cat} 素材入库", 'low'
+        return f"今日无 {cat} 素材入库 → 建议下个采集周期增加 {cat} 关键词（如'{cat} 选购'、'{cat} 避坑'、'{cat} 测评'）", 'low'
     if total_inter < 5000:
-        return f"历史互动量偏低（{total_inter}），缺乏爆款支撑", 'low'
-    # 检查是否缺新冲突
-    return f"素材偏老或场景不够新冲突，建议改为图文备选", 'medium'
+        return f"历史互动量偏低（{total_inter}），缺乏爆款支撑 → 改用图文形式", 'low'
+    if avg_score < 7.5:
+        return f"素材均分 {avg_score} 偏低，画面可拍性不够 → 改图文/等待更优质爆款", 'medium'
+    return f"已有素材但被更高互动品类挤掉 TOP3 位 → 建议放入图文备选库（{total_inter} 互动 / {today_n} 条今日）", 'medium'
 
 category_trend = []
 for cat, d in sorted(cat_data.items(), key=lambda x: -sum(x[1]['interactions'])):
@@ -873,7 +904,7 @@ for cat, d in sorted(cat_data.items(), key=lambda x: -sum(x[1]['interactions']))
         reason = f"✅ 今日进入 TOP3，{today} 条素材命中"
         status = 'in_top3'
     else:
-        reason, status = explain_why_not_in_top3(cat, today, total_inter)
+        reason, status = explain_why_not_in_top3(cat, today, total_inter, avg_score)
     
     category_trend.append({
         'category': cat,

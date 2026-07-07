@@ -211,7 +211,13 @@ function renderPickCard(p) {
 // ══════════════════════════════════════════════
 function renderPainList(pains) {
   if (!pains || pains.length === 0) {
-    return `<div class="empty-state">暂无痛点数据<br>评论区数据采集中...</div>`;
+    return `<div class="empty-state">
+      <div style="font-size:14px;margin-bottom:8px;">📭 暂无真实评论区数据</div>
+      <div style="font-size:12px;line-height:1.6;">
+        痛点数据来自今日爆款的真实用户评论。<br>
+        当前小红书评论接口拉取受限，建议查看左侧 TOP3 选题获取痛点。
+      </div>
+    </div>`;
   }
   let html = '<div class="pain-list">';
   for (const p of pains) {
@@ -251,11 +257,22 @@ function renderFormulaSection() {
     html += `<span>使用: ${esc(f.usage_text || '未使用')}</span>`;
     html += `<span class="${fcls}">疲劳: ${esc(fatigue)}</span>`;
     html += `</div>`;
-    // 一键套用 demo
+    // 经典案例（真实历史爆款）+ 结构模板
     if (f.apply_demo && f.apply_demo.length > 0) {
+      const real = f.apply_demo.filter(d => d && d.is_real);
+      const tmpl = f.apply_demo.filter(d => d && !d.is_real);
       html += `<div class="formula-demos">`;
-      for (const demo of f.apply_demo.slice(0, 3)) {
-        html += `<div class="formula-demo-item">→ ${esc(demo)}</div>`;
+      if (real.length > 0) {
+        html += `<div style="font-size:10px;color:var(--green);font-weight:600;margin-bottom:4px;">✅ 真实爆款案例</div>`;
+        for (const d of real) {
+          html += `<div class="formula-demo-item">→ ${esc(d.text)}</div>`;
+        }
+      }
+      if (tmpl.length > 0) {
+        html += `<div style="font-size:10px;color:var(--blue);font-weight:600;margin:8px 0 4px;">📝 结构模板（填空即可）</div>`;
+        for (const d of tmpl) {
+          html += `<div class="formula-demo-item" style="color:var(--text-dim);font-style:italic;">→ ${esc(d.text)}</div>`;
+        }
       }
       html += `</div>`;
     }
